@@ -90,6 +90,7 @@ housing["rooms_per_household"] = housing["total_rooms"] / housing["households"]
 housing["bedrooms_per_room"] = housing["total_bedrooms"] / housing["total_rooms"]
 housing["population_per_household"] = housing["population"] / housing["households"]
 
+
 housing = strat_train_set.drop(
     "median_house_value", axis=1
 )  # drop labels for training set
