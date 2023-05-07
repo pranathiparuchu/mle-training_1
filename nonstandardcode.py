@@ -1,22 +1,21 @@
 import os
 import tarfile
-from six.moves import urllib
 
 import numpy as np
 import pandas as pd
 from scipy.stats import randint
+from six.moves import urllib
+
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error
-
 from sklearn.model_selection import (
     GridSearchCV,
     RandomizedSearchCV,
     StratifiedShuffleSplit,
     train_test_split,
 )
-
 from sklearn.tree import DecisionTreeRegressor
 
 DOWNLOAD_ROOT = "https://raw.githubusercontent.com/ageron/handson-ml/master/"
@@ -95,7 +94,6 @@ housing["bedrooms_per_room"] = (
 housing["population_per_household"] = (
     housing["population"] / housing["households"]
 )
-
 housing = strat_train_set.drop(
     "median_house_value", axis=1
 )  # drop labels for training set
@@ -155,7 +153,7 @@ rnd_search = RandomizedSearchCV(
     param_distributions=param_distribs,
     n_iter=10,
     cv=5,
-    scoring='neg_mean_squared_error'
+    scoring="neg_mean_squared_error",
 )
 
 
@@ -211,9 +209,7 @@ X_test_prepared["population_per_household"] = (
 )
 
 X_test_cat = X_test[["ocean_proximity"]]
-X_test_prepared = X_test_prepared.join(
-    pd.get_dummies(X_test_cat, drop_first=True)
-)
+X_test_prepared = X_test_prepared.join(pd.get_dummies(X_test_cat, drop_first=True))
 
 final_predictions = final_model.predict(X_test_prepared)
 final_mse = mean_squared_error(y_test, final_predictions)
