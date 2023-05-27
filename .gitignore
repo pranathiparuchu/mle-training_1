@@ -1,2 +1,13 @@
+#Private data files
 *.csv
+
+# Byte-compiled
 *.pyc
+
+# Ignore dataset and model folders
+data
+artifacts
+
+
+# ignore log files
+logs
