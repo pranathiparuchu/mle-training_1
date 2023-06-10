@@ -6,19 +6,98 @@ import joblib
 import numpy as np
 import pandas as pd
 from logger_functions import configure_logger
+from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 from sklearn.model_selection import GridSearchCV
-from sklearn.preprocessing import OneHotEncoder
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.tree import DecisionTreeRegressor
 
 HOUSING_INPUT_FOLDER = "data/processed"
 HOUSING_OUTPUT_FOLDER = "artifacts"
 
 logger = logging.getLogger(__name__)
+
+
+class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
+    """
+    Custom Transformer to create derived columns `rooms_per_household`, `bedrooms_per_room`, `population_per_household`.
+
+    Parameters
+    ----------
+    add_bedrooms_per_room: Bool
+        Flag whether to add `bedrooms_per_room` to the array.
+    cols_to_index_mapper: Dict
+        key-value pair where keys are columns and values are it's indexes.
+
+    """  # noqa:E501
+
+    def __init__(
+        self,
+        add_bedrooms_per_room=True,
+        cols_to_index_mapper={
+            "rooms": 3,
+            "bedrooms": 4,
+            "population": 5,
+            "households": 6,
+        },
+    ):
+        self.add_bedrooms_per_room = add_bedrooms_per_room
+        self.cols_to_index_mapper = cols_to_index_mapper
+
+    def fit(self, X, y=None):
+        """
+        Fit the transformer.
+
+        Parameters
+        ----------
+        X: array
+            Input array passed
+        y: array
+            Input target array
+        """
+        return self
+
+    def transform(self, X):
+        """
+        Transforms the data.
+
+        Parameters
+        ----------
+        X: array
+            Data to transform.
+
+        Returns
+        -------
+        Array
+            Returns transformed array with added derived columns
+
+        """
+        rooms_per_household = (
+            X[:, self.cols_to_index_mapper["rooms"]]
+            / X[:, self.cols_to_index_mapper["households"]]
+        )
+        population_per_household = (
+            X[:, self.cols_to_index_mapper["population"]]
+            / X[:, self.cols_to_index_mapper["households"]]
+        )
+        if self.add_bedrooms_per_room:
+            bedrooms_per_room = (
+                X[:, self.cols_to_index_mapper["bedrooms"]]
+                / X[:, self.cols_to_index_mapper["rooms"]]
+            )
+            return np.c_[
+                X,
+                rooms_per_household,
+                population_per_household,
+                bedrooms_per_room,
+            ]
+        else:
+            return np.c_[X, rooms_per_household, population_per_household]
 
 
 def split_DV_IV(df, target):
@@ -43,40 +122,64 @@ def split_DV_IV(df, target):
 
 def feature_engineering(X, y, output_folder=HOUSING_OUTPUT_FOLDER):
     """
-    Perform feature engineering on the dataset.
+    Transforms feature dataframe
 
-    Args:
-        X (pd.DataFrame): Feature dataframe.
-        y (pd.Series): Target array.
-        output_folder (str): Output folder path.
+        - Converts categorical columns into dummy variables
+        - Imputes missing values in numerical columns
+        - Adds some derived numerical columns using custom transformer class.
+        - Scales the numerical columns.
 
-    Returns:
-        df (pd.DataFrame): Transformed feature dataframe.
+    and saves the feature transformer in output_folder.
+
+    Parameters
+    ----------
+    X: Dataframe
+        Feature Dataframe
+    y: Array
+        Target array
+    output_folder: str
+        Path to save the feature transformer
+
+    Returns
+    -------
+    Dataframe
+        Returns transformed dataframe
     """
-    logger.info("Starting feature engineering")
+
+    logger.info("Started feature engineering")
     num_cols = X.select_dtypes("number").columns
     cat_cols = X.select_dtypes("object").columns
 
+    num_pipeline = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="median")),
+            ("attribs_adder", CombinedAttributesAdder()),
+            ("std_scaler", StandardScaler()),
+        ]
+    )
     features_transformer = ColumnTransformer(
         [
-            ("cat_enc", OneHotEncoder(drop="first"), cat_cols),
-            ("imputer", SimpleImputer(strategy="median"), num_cols),
+            ("cat_enc", OneHotEncoder(handle_unknown="ignore"), cat_cols),
+            ("num", num_pipeline, num_cols),  # added
         ]
     )
     arr = features_transformer.fit_transform(X, y)
-    df = pd.DataFrame(
-        arr,
-        columns=list(
-            features_transformer.transformers_[0][1].get_feature_names_out()
-        )
-        + list(num_cols),
-    )
 
+    cat_cols = list(
+        features_transformer.transformers_[0][1].get_feature_names_out()
+    )
+    num_cols = list(num_cols) + [
+        "rooms_per_household",
+        "population_per_household",
+        "bedrooms_per_room",
+    ]
+    total_cols = cat_cols + num_cols
+    df = pd.DataFrame(arr, columns=total_cols)
     joblib.dump(
         features_transformer, output_folder + "/feature_transformer.joblib"
     )
-    logger.info("Saved the transformer file sucessfully")
-    logger.info("Feature engineering completed")
+    logger.info("Saved transformer file")
+    logger.info("Completed feature engineering")
     return df
 
 
