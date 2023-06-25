@@ -3,6 +3,8 @@ import logging
 import os
 
 import joblib
+import mlflow
+import mlflow.sklearn
 import numpy as np
 import pandas as pd
 from logger_functions import configure_logger
@@ -21,6 +23,7 @@ HOUSING_INPUT_FOLDER = "data/processed"
 HOUSING_OUTPUT_FOLDER = "artifacts"
 
 logger = logging.getLogger(__name__)
+os.environ["MLFLOW_TRACKING_URI"] = "http://127.0.0.1:5000/"
 
 
 class CombinedAttributesAdder(BaseEstimator, TransformerMixin):
@@ -183,6 +186,97 @@ def feature_engineering(X, y, output_folder=HOUSING_OUTPUT_FOLDER):
     return df
 
 
+def run_linear_regression(X, y, output_folder=HOUSING_OUTPUT_FOLDER):
+    lin_reg = LinearRegression()
+    lin_reg.fit(X, y)
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    joblib.dump(lin_reg, output_folder + "/lin_reg.joblib")
+    y_pred = lin_reg.predict(X)
+    metrics_lr = {
+        "mse": round(mean_squared_error(y, y_pred), 3),
+        "rmse": round(np.sqrt(mean_squared_error(y, y_pred)), 3),
+        "mae": round(mean_absolute_error(y, y_pred), 3),
+    }
+    return metrics_lr
+
+
+def run_decision_tree(X, y, output_folder=HOUSING_OUTPUT_FOLDER):
+    dt_model = DecisionTreeRegressor(random_state=42)
+    dt_model.fit(X, y)
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    joblib.dump(dt_model, output_folder + "/dt_model.joblib")
+    y_pred = dt_model.predict(X)
+    metrics_dt = {
+        "mse": round(mean_squared_error(y, y_pred), 3),
+        "rmse": round(np.sqrt(mean_squared_error(y, y_pred)), 3),
+        "mae": round(mean_absolute_error(y, y_pred), 3),
+    }
+    return metrics_dt
+
+
+def run_random_forest(X, y, output_folder=HOUSING_OUTPUT_FOLDER):
+    rf_model = RandomForestRegressor(random_state=42)
+    rf_model.fit(X, y)
+    if not os.path.exists(output_folder):
+        os.makedirs(output_folder)
+    joblib.dump(rf_model, output_folder + "/rf_model.joblib")
+    y_pred = rf_model.predict(X)
+    metrics_rf = {
+        "mse": round(mean_squared_error(y, y_pred), 3),
+        "rmse": round(np.sqrt(mean_squared_error(y, y_pred)), 3),
+        "mae": round(mean_absolute_error(y, y_pred), 3),
+    }
+    return metrics_rf
+
+
+def run_grid_search(X, y, output_folder=HOUSING_OUTPUT_FOLDER):
+    logger.info("Started GridSearchCV")
+    param_grid = [
+        # try 48 (3×4x4) combinations of hyperparameters
+        {
+            "n_estimators": [50, 100, 150],
+            "max_features": [2, 4, 6, 8],
+            "max_depth": [2, 4, 6, 8],
+        },
+        # then try 18 (2×3x3) combinations with bootstrap set as False
+        {
+            "bootstrap": [False, True],
+            "min_samples_leaf": [2, 3, 4],
+            "min_samples_split": [2, 4, 6],
+        },
+    ]
+    rf_model = RandomForestRegressor(random_state=42)
+    # train across 5 folds, that's a total of (48+18)*5 = 330 rounds of training
+    grid_search = GridSearchCV(
+        rf_model,
+        param_grid,
+        cv=5,
+        scoring="neg_mean_squared_error",
+        return_train_score=True,
+        n_jobs=-1,
+    )
+    grid_search.fit(X, y)
+    logger.info(f"Used grid: {param_grid}")
+    logger.info("GridSearchCV Completed")
+    logger.info(f"Best Params for the given grid: {grid_search.best_params_}")
+    logger.info(
+        f"Best RMSE Score for the given grid: {np.sqrt(-grid_search.best_score_)}"
+    )
+
+    final_model = grid_search.best_estimator_
+    joblib.dump(final_model, output_folder + "/final_model.joblib")
+    y_pred = final_model.predict(X)
+    metrics_grid_search = {
+        "mse": round(mean_squared_error(y, y_pred), 3),
+        "rmse": round(np.sqrt(mean_squared_error(y, y_pred)), 3),
+        "mae": round(mean_absolute_error(y, y_pred), 3),
+    }
+    logger.info("Saved the best estimator model")
+    return metrics_grid_search
+
+
 def create_metrics_df(models, X, y):
     """
     Create a DataFrame containing evaluation metrics for the specified models.
@@ -197,35 +291,24 @@ def create_metrics_df(models, X, y):
     metrics_df = pd.DataFrame(columns=["mse", "rmse", "mae"])
 
     if "lr" in models:
-        lin_reg = LinearRegression()
-        lin_reg.fit(X, y)
-        y_pred = lin_reg.predict(X)
-        metrics_df.loc["lr", "mse"] = round(mean_squared_error(y, y_pred), 3)
-        metrics_df.loc["lr", "rmse"] = round(
-            np.sqrt(mean_squared_error(y, y_pred)), 3
-        )
-        metrics_df.loc["lr", "mae"] = round(mean_absolute_error(y, y_pred), 3)
+        metrics_lr = run_linear_regression(X, y)
+        metrics_df.loc["lr", "mse"] = metrics_lr["mse"]
+        metrics_df.loc["lr", "rmse"] = metrics_lr["rmse"]
+        metrics_df.loc["lr", "mae"] = metrics_lr["mae"]
 
     if "dt" in models:
-        dt_model = DecisionTreeRegressor(random_state=42)
-        dt_model.fit(X, y)
-        y_pred = dt_model.predict(X)
-        metrics_df.loc["dt", "mse"] = round(mean_squared_error(y, y_pred), 3)
-        metrics_df.loc["dt", "rmse"] = round(
-            np.sqrt(mean_squared_error(y, y_pred)), 3
-        )
-        metrics_df.loc["dt", "mae"] = round(mean_absolute_error(y, y_pred), 3)
+        metrics_dt = run_decision_tree(X, y)
+        metrics_df.loc["dt", "mse"] = metrics_dt["mse"]
+        metrics_df.loc["dt", "rmse"] = metrics_dt["rmse"]
+        metrics_df.loc["dt", "mae"] = metrics_dt["mae"]
     if "rf" in models:
-        rf_model = RandomForestRegressor(random_state=42)
-        rf_model.fit(X, y)
-        y_pred = rf_model.predict(X)
-        metrics_df.loc["rf", "mse"] = round(mean_squared_error(y, y_pred), 3)
-        metrics_df.loc["rf", "rmse"] = round(
-            np.sqrt(mean_squared_error(y, y_pred)), 3
-        )
-        metrics_df.loc["rf", "mae"] = round(mean_absolute_error(y, y_pred), 3)
+        metrics_rf = run_random_forest(X, y)
+        metrics_df.loc["rf", "mse"] = metrics_rf["mse"]
+        metrics_df.loc["rf", "rmse"] = metrics_rf["rmse"]
+        metrics_df.loc["rf", "mae"] = metrics_rf["mae"]
 
     logger.info(f"Calculated metrics for the specified models: \n{metrics_df}")
+    return metrics_df
 
 
 def initialize_parser():
@@ -292,65 +375,60 @@ def get_train():
 
     """
     global logger
-    args = initialize_parser()
-    logger = configure_logger(
-        logger=logger,
-        log_file=args.log_path,
-        console=args.no_console_log,
-        log_level=args.log_level,
+
+    experiment_id = mlflow.create_experiment(
+        "Feature engineering and Training"
     )
-    logger.info("Started training")
 
-    logger.info("Started reading train dataset")
-    df = pd.read_csv(args.input_folder + "/train.csv")
-    X, y = split_DV_IV(df, "median_house_value")
-
-    if not os.path.exists(args.output_folder):
-        logger.info(
-            f'Directory "{args.output_folder}" not found, so creating the folder'
+    with mlflow.start_run(
+        run_name="Parent_run",
+        experiment_id=experiment_id,
+        description="Performing fe on split data and training the model",
+    ):
+        args = initialize_parser()
+        logger = configure_logger(
+            logger=logger,
+            log_file=args.log_path,
+            console=args.no_console_log,
+            log_level=args.log_level,
         )
-        os.makedirs(args.output_folder)
+        logger.info("Started training")
 
-    df = feature_engineering(X, y, args.output_folder)
+        logger.info("Started reading train dataset")
+        df = pd.read_csv(args.input_folder + "/train.csv")
+        X, y = split_DV_IV(df, "median_house_value")
 
-    X_trans = df.to_numpy()
+        if not os.path.exists(args.output_folder):
+            logger.info(
+                f'Directory "{args.output_folder}" not found, so creating the folder'
+            )
+            os.makedirs(args.output_folder)
 
-    create_metrics_df(["lr", "dt", "rf"], X_trans, y)
+        df = feature_engineering(X, y, args.output_folder)
+        mlflow.log_artifact(args.output_folder + "/feature_transformer.joblib")
 
-    logger.info("Started GridSearchCV")
-    param_grid = [
-        # try 12 (3×4) combinations of hyperparameters
-        {"n_estimators": [3, 10, 30], "max_features": [2, 4, 6, 8]},
-        # then try 6 (2×3) combinations with bootstrap set as False
-        {
-            "bootstrap": [False],
-            "n_estimators": [3, 10],
-            "max_features": [2, 3, 4],
-        },
-    ]
-    rf_model = RandomForestRegressor(random_state=42)
-    # train across 5 folds, that's a total of (12+6)*5=90 rounds of training
-    grid_search = GridSearchCV(
-        rf_model,
-        param_grid,
-        cv=5,
-        scoring="neg_mean_squared_error",
-        return_train_score=True,
-    )
-    grid_search.fit(X_trans, y)
-    logger.info(f"Used grid: {param_grid}")
-    logger.info("GridSearchCV Completed")
-    logger.info(f"Best Params for the given grid: {grid_search.best_params_}")
-    logger.info(f"Best Score for the given grid: {grid_search.best_score_}")
+        X_trans = df.to_numpy()
+        df.to_csv(args.input_folder + "/transformed_X.csv", index=False)
+        mlflow.log_artifact(args.input_folder + "/transformed_X.csv")
 
-    feature_importances = grid_search.best_estimator_.feature_importances_
-    logger.info(
-        f"Feature importances of best param model: \n{sorted(zip(feature_importances, df.columns), reverse=True)}"
-    )
+        metrics_df = create_metrics_df(["lr", "dt", "rf"], X_trans, y)
 
-    final_model = grid_search.best_estimator_
-    joblib.dump(final_model, args.output_folder + "/final_model.joblib")
-    logger.info("Saved the best estimator model")
+        if not os.path.exists(args.output_folder + "/metrics"):
+            os.makedirs(args.output_folder + "/metrics")
+
+        metrics_df.reset_index().to_csv(
+            args.output_folder + "/metrics/different_model_metrics.csv",
+            index=False,
+        )
+
+        mlflow.log_artifact(
+            args.output_folder + "/metrics/different_model_metrics.csv"
+        )
+
+        metrics_grid_search = run_grid_search(X_trans, y, args.output_folder)
+        mlflow.log_artifact(args.output_folder + "/final_model.joblib")
+        for metric in metrics_grid_search:
+            mlflow.log_metric(metric, metrics_grid_search[metric])
 
 
 if __name__ == "__main__":

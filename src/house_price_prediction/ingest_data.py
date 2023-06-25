@@ -6,6 +6,8 @@ import tarfile
 import urllib.request
 from urllib.error import URLError
 
+import mlflow
+import mlflow.sklearn
 import numpy as np
 import pandas as pd
 from logger_functions import configure_logger
@@ -18,6 +20,7 @@ HOUSING_DATA_FOLDER = "data"
 # Configure logging
 configure_logger()
 logger = logging.getLogger(__name__)
+os.environ["MLFLOW_TRACKING_URI"] = "http://127.0.0.1:5000/"
 
 
 def fetch_housing_data(
@@ -67,31 +70,6 @@ def load_housing_data(housing_path=HOUSING_DATA_FOLDER):
     data = pd.read_csv(csv_path)
     logger.info("Housing data loaded.")
     return data
-
-
-def add_new_columns(df):
-    """
-    Adds new columns to the housing DataFrame.
-
-    Args:
-        df (pandas.DataFrame): The housing data.
-
-    Returns:
-        pandas.DataFrame: The housing data with new columns added.
-    """
-    logger.info("Adding new columns to the housing data...")
-    housing = df.copy()
-    housing["rooms_per_household"] = (
-        housing["total_rooms"] / housing["households"]
-    )
-    housing["bedrooms_per_room"] = (
-        housing["total_bedrooms"] / housing["total_rooms"]
-    )
-    housing["population_per_household"] = (
-        housing["population"] / housing["households"]
-    )
-    logger.info("New columns added.")
-    return housing
 
 
 def split_data(df):
@@ -177,6 +155,14 @@ def get_data():
 
     """
     global logger
+    experiment_id = mlflow.create_experiment("Data Prep")
+
+    with mlflow.start_run(
+        run_name="Parent_run",
+        experiment_id=experiment_id,
+        description="Fetching Data and splitting the data and saving the split sets",
+    ):
+        mlflow.log_param("parent", "yes")
     args = initialize_parser()
     logger = configure_logger(
         logger=logger,
@@ -193,10 +179,10 @@ def get_data():
     if len(os.listdir(HOUSING_DATA_FOLDER + "/raw")) == 0:
         fetch_housing_data()
         housing = load_housing_data(housing_path=HOUSING_DATA_FOLDER)
-        housing = add_new_columns(housing)
+        # housing = add_new_columns(housing)
     else:
         housing = load_housing_data()
-        housing = add_new_columns(housing)
+        # housing = add_new_columns(housing)
 
     train_set, test_set = split_data(housing)
 
@@ -208,6 +194,9 @@ def get_data():
 
     train_set.to_csv(args.output_folder + "/train.csv", index=False)
     test_set.to_csv(args.output_folder + "/test.csv", index=False)
+
+    mlflow.log_artifact(args.output_folder + "/train.csv")
+    mlflow.log_artifact(args.output_folder + "/test.csv")
 
 
 if __name__ == "__main__":
