@@ -3,6 +3,8 @@ import logging
 import os
 
 import joblib
+import mlflow
+import mlflow.sklearn
 import numpy as np
 import pandas as pd
 from logger_functions import configure_logger
@@ -14,6 +16,7 @@ HOUSING_DATA_FOLDER = "data/processed"
 HOUSING_OUTPUT_FOLDER = "notebooks/results"
 
 logger = logging.getLogger(__name__)
+os.environ["MLFLOW_TRACKING_URI"] = "http://127.0.0.1:5000/"
 
 
 def initialize_parser():
@@ -86,6 +89,14 @@ def get_score():
     Calculate the scores of a trained regression model on the test dataset.
     """
     global logger
+    experiment_id = mlflow.create_experiment("Scoring of trained model")
+
+    with mlflow.start_run(
+        run_name="Parent_run",
+        experiment_id=experiment_id,
+        description="Scoring of trained model",
+    ):
+
     args = initialize_parser()
     logger = configure_logger(
         logger=logger,
@@ -114,6 +125,8 @@ def get_score():
 
     logger.info("Loading trained model")
     final_model = joblib.load(args.input_model_folder + "/final_model.joblib")
+    mlflow.log_artifact(args.input_model_folder + "/final_model.joblib")
+
     y_train_pred = final_model.predict(X_train_trans)
     y_test_pred = final_model.predict(X_test_trans)
 
