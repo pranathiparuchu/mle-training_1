@@ -20,7 +20,7 @@ The following techniques have been used:
 ```
 conda env create -f deploy/conda/env.yaml
 ```
-> Note: The name of the environment is `mle-dev` which can be seen in the name section of `env.yaml` file
+> Note: The name of the environment is `mle-dev` which can be found in the name section of `env.yaml` file
 - Activate the environment once environment is created
 ```
 conda activate mle-dev
