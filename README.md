@@ -20,10 +20,10 @@ The following techniques have been used:
 ```
 conda env create -f deploy/conda/env.yaml
 ```
-> Note: The name of the environment is `mle-dev` which can be found in the name section of `env.yaml` file
+> Note: The name of the environment is `mle-dev-mlflow` which can be found in the name section of `env.yaml` file
 - Activate the environment once environment is created
 ```
-conda activate mle-dev
+conda activate mle-dev-mlflow
 ```
 - To install `housing_price` package, run the below command:
 ```
@@ -33,7 +33,7 @@ python setup.py install
 
 ## Testing the installation
 
-- After activating `mle-dev` environment, run the following command
+- After activating `mle-dev-mlflow` environment, run the following command
 ```
 python tests/installation_tests/housing_price_test.py
 ```
