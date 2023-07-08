@@ -28,11 +28,11 @@ After activating mle-dev environment, run the following command
 python tests/installation_tests/housing_price_test.py
 If there is no error, then the package installation is successful.
 
-Note: All the above code commands expects you to run them in the root folder of the project.
+Note: All the above code commands have to be run in the root folder of the project.
 
 Execute Scripts
 To run the scripts, use the below command:
 python src/house_price_prediction/<script_name>.py --args
 To get the arguments taken by each script, use the below command:
 python src/house_price_prediction/<script_name>.py --help
-Note: All the above code commands expects you to run them in the root folder of the project.
+Note: All the above code commands have to be run in the root folder of the project.
