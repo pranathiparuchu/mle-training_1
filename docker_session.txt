@@ -1,0 +1,2715 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20230709201002
+Username: TIGERANALYTICS\pranathi.paruchu
+RunAs User: TIGERANALYTICS\pranathi.paruchu
+Configuration Name: 
+Machine: TIGER01365 (Microsoft Windows NT 10.0.19044.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 12052
+PSVersion: 5.1.19041.2673
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.2673
+BuildVersion: 10.0.19041.2673
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\Users\pranathi.paruchu\Documents\docker_excercise.txt
+PS C:\Users\pranathi.paruchu> clear
+PS C:\Users\pranathi.paruchu> docker run -dit debian
+8c59845935aa6421c036b46536583d6fd5259ce146f82283f40c859888305346
+PS C:\Users\pranathi.paruchu> doker ps
+doker : The term 'doker' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ doker ps
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (doker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+doker : The term 'doker' is not recognized as the name of a cmdlet, function, script file,
+or operable program. Check the spelling of the name, or if a path was included, verify that
+the path is correct and try again.
+At line:1 char:1
++ doker ps
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (doker:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+8c59845935aa   debian    "bash"    2 minutes ago    Up 2 minutes              jolly_jones
+8f50bde89942   debian    "bash"    12 minutes ago   Up 12 minutes             zen_taussig
+PS C:\Users\pranathi.paruchu> docker stop b31
+Error response from daemon: No such container: b31
+PS C:\Users\pranathi.paruchu> docker stop 8c5
+8c5
+PS C:\Users\pranathi.paruchu> docker run -dit debian
+c379e49020f53449a32a8be3bedeaa4a8d11504f69bd2ae7af6dae3160f8bc54
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS          PORTS     NAMES
+c379e49020f5   debian    "bash"    7 seconds ago    Up 7 seconds              keen_johnson
+8f50bde89942   debian    "bash"    14 minutes ago   Up 14 minutes             zen_taussig
+PS C:\Users\pranathi.paruchu> docker stop keen
+Error response from daemon: No such container: keen
+PS C:\Users\pranathi.paruchu> docker stop keen_johnson
+keen_johnson
+PS C:\Users\pranathi.paruchu> docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+debian       latest    3676c78a12ad   5 days ago   116MB
+PS C:\Users\pranathi.paruchu> docker inspect 8f5
+[
+    {
+        "Id": "8f50bde8994217662f766a8b481bd88d326fd459466ec415dc9d470e879a74b6",
+        "Created": "2023-07-09T14:30:46.372510012Z",
+        "Path": "bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 1862,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-07-09T14:30:47.68355106Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:3676c78a12ad77e170916695d2f192797ddd3eb653d7a1b1ad4c20ab5471891a",
+        "ResolvConfPath": "/var/lib/docker/containers/8f50bde8994217662f766a8b481bd88d326fd459
+466ec415dc9d470e879a74b6/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/8f50bde8994217662f766a8b481bd88d326fd45946
+6ec415dc9d470e879a74b6/hostname",
+        "HostsPath": "/var/lib/docker/containers/8f50bde8994217662f766a8b481bd88d326fd459466ec
+415dc9d470e879a74b6/hosts",
+        "LogPath": "/var/lib/docker/containers/8f50bde8994217662f766a8b481bd88d326fd459466ec41
+5dc9d470e879a74b6/8f50bde8994217662f766a8b481bd88d326fd459466ec415dc9d470e879a74b6-json.log",
+        "Name": "/zen_taussig",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                44,
+                83
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/86c2c9a0ddaddbd33e286b15533c2e057bc7b00e
+6f2f85d79fc568e9fba3401e-init/diff:/var/lib/docker/overlay2/b8ab91f4c8892d42a4c5b5e24a4f1ca0d4
+01fead101989f7d55ad7cde9d50f42/diff",
+                "MergedDir": "/var/lib/docker/overlay2/86c2c9a0ddaddbd33e286b15533c2e057bc7b00
+e6f2f85d79fc568e9fba3401e/merged",
+                "UpperDir": "/var/lib/docker/overlay2/86c2c9a0ddaddbd33e286b15533c2e057bc7b00e
+6f2f85d79fc568e9fba3401e/diff",
+                "WorkDir": "/var/lib/docker/overlay2/86c2c9a0ddaddbd33e286b15533c2e057bc7b00e6
+f2f85d79fc568e9fba3401e/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "8f50bde89942",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "Image": "debian",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "ddeb3ba67c1e9c18069499a4ea3be0800bcb82aac71ba1b804e06d6cf60547e8",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/ddeb3ba67c1e",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "b2502fcdafeaa39c3f77c02d97e4fce7f7d47835c6bb0c19370db8558d3de0d1",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.2",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:02",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "7b0f817c9e5e001f1a1b3f0988be1204a751493d16fb16b1399294491443
+0217",
+                    "EndpointID": "b2502fcdafeaa39c3f77c02d97e4fce7f7d47835c6bb0c19370db8558d3
+de0d1",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+PS C:\Users\pranathi.paruchu> docker pull nginx
+Using default tag: latest
+latest: Pulling from library/nginx
+faef57eae888: Pull complete
+76579e9ed380: Pull complete
+cf707e233955: Pull complete
+91bb7937700d: Pull complete
+4b962717ba55: Pull complete
+f46d7b05649a: Pull complete
+103501419a0a: Pull complete
+Digest: sha256:08bc36ad52474e528cc1ea3426b5e3f4bad8a130318e3140d6cfe29c8892c7ef
+Status: Downloaded newer image for nginx:latest
+docker.io/library/nginx:latest
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview nginx
+PS C:\Users\pranathi.paruchu> docker images
+REPOSITORY   TAG       IMAGE ID       CREATED      SIZE
+nginx        latest    021283c8eb95   4 days ago   187MB
+debian       latest    3676c78a12ad   5 days ago   116MB
+PS C:\Users\pranathi.paruchu> dokcer history ngnix
+dokcer : The term 'dokcer' is not recognized as the name of a cmdlet, function, script file, or operable program. Check 
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ dokcer history ngnix
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (dokcer:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+dokcer : The term 'dokcer' is not recognized as the name of a cmdlet, function, script file,
+or operable program. Check the spelling of the name, or if a path was included, verify that
+the path is correct and try again.
+At line:1 char:1
++ dokcer history ngnix
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (dokcer:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> docker history ngnix
+Error response from daemon: No such image: ngnix:latest
+PS C:\Users\pranathi.paruchu> docker history nginx
+IMAGE          CREATED      CREATED BY                                      SIZE      COMMENT
+021283c8eb95   4 days ago   /bin/sh -c #(nop)  CMD ["nginx" "-g" "daemon…   0B
+<missing>      4 days ago   /bin/sh -c #(nop)  STOPSIGNAL SIGQUIT           0B
+<missing>      4 days ago   /bin/sh -c #(nop)  EXPOSE 80                    0B
+<missing>      4 days ago   /bin/sh -c #(nop)  ENTRYPOINT ["/docker-entr…   0B
+<missing>      4 days ago   /bin/sh -c #(nop) COPY file:e57eef017a414ca7…   4.62kB
+<missing>      4 days ago   /bin/sh -c #(nop) COPY file:36429cfeeb299f99…   3.01kB
+<missing>      4 days ago   /bin/sh -c #(nop) COPY file:d4375883ed5db364…   276B
+<missing>      4 days ago   /bin/sh -c #(nop) COPY file:5c18272734349488…   2.12kB
+<missing>      4 days ago   /bin/sh -c #(nop) COPY file:7b307b62e82255f0…   1.62kB
+<missing>      4 days ago   /bin/sh -c set -x     && groupadd --system -…   112MB
+<missing>      4 days ago   /bin/sh -c #(nop)  ENV PKG_RELEASE=1~bookworm   0B
+<missing>      4 days ago   /bin/sh -c #(nop)  ENV NJS_VERSION=0.7.12       0B
+<missing>      4 days ago   /bin/sh -c #(nop)  ENV NGINX_VERSION=1.25.1     0B
+<missing>      4 days ago   /bin/sh -c #(nop)  LABEL maintainer=NGINX Do…   0B
+<missing>      5 days ago   /bin/sh -c #(nop)  CMD ["bash"]                 0B
+<missing>      5 days ago   /bin/sh -c #(nop) ADD file:bd80a4461150784e5…   74.8MB
+PS C:\Users\pranathi.paruchu> docker images --no-trunc
+REPOSITORY   TAG       IMAGE ID
+   CREATED      SIZE
+nginx        latest    sha256:021283c8eb95be02b23db0de7f609d603553c6714785e7a673c6594a624ffbda
+   4 days ago   187MB
+debian       latest    sha256:3676c78a12ad77e170916695d2f192797ddd3eb653d7a1b1ad4c20ab5471891a
+   5 days ago   116MB
+PS C:\Users\pranathi.paruchu> docker tag --help
+
+Usage:  docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+
+Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Aliases:
+  docker image tag, docker tag
+PS C:\Users\pranathi.paruchu> docker tag nginx:latest nginx:myblog_stable
+
+PS C:\Users\pranathi.paruchu> docker images
+REPOSITORY   TAG             IMAGE ID       CREATED      SIZE
+nginx        latest          021283c8eb95   4 days ago   187MB
+nginx        myblog_stable   021283c8eb95   4 days ago   187MB
+debian       latest          3676c78a12ad   5 days ago   116MB
+PS C:\Users\pranathi.paruchu> less dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ less dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> ls
+
+
+    Directory: C:\Users\pranathi.paruchu
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12-05-2023     22:18                .cache
+d-----        15-06-2022     16:51                .conda
+d-----        03-09-2021     19:42                .continuum
+d-----        07-09-2021     20:02                .cufflinks
+d-----        09-07-2023     20:01                .docker
+d-----        20-02-2023     21:27                .ipynb_checkpoints
+d-----        03-09-2021     19:48                .ipython
+d-----        27-04-2022     22:59                .jupyter
+d-----        07-09-2021     13:44                .matplotlib
+d-----        24-06-2022     13:49                .ms-ad
+d-----        24-06-2023     22:56                .ssh
+d-----        18-05-2023     00:22                .streamlit
+d-----        24-06-2023     23:11                .virtualenvs
+d-----        14-06-2023     21:23                .vscode
+d-----        05-06-2023     14:11                .wdm
+d-r---        31-08-2021     11:46                3D Objects
+d-----        08-07-2023     11:31                Anaconda3
+d-r---        31-08-2021     11:46                Contacts
+d-r---        09-07-2023     19:46                Desktop
+d-r---        09-07-2023     20:10                Documents
+d-r---        09-07-2023     20:38                Downloads
+d-r---        31-08-2021     11:46                Favorites
+d-----        07-05-2023     18:45                hello
+d-r---        31-08-2021     11:46                Links
+d-----        10-01-2023     15:16                Microsoft
+d-----        09-10-2021     14:59                miniconda3
+d-----        11-10-2021     18:53                mle-training
+d-r---        31-08-2021     11:46                Music
+d-----        16-04-2023     01:51                my_project
+d-r---        22-06-2022     18:48                OneDrive
+d-r---        07-06-2023     22:32                Pictures
+d-----        13-01-2022     15:08                Project
+d-r---        31-08-2021     11:46                Saved Games
+d-----        07-09-2021     16:54                seaborn-data
+d-r---        21-06-2023     13:00                Searches
+d-r---        08-09-2021     10:29                Videos
+-a----        15-04-2023     19:03          21383 .bash_history
+-a----        03-09-2021     19:43             25 .condarc
+-a----        27-05-2023     23:25            224 .gitconfig
+-a----        08-07-2023     16:48             20 .lesshst
+-a----        09-10-2021     15:08           7168 a
+-a----        16-12-2021     11:26           2087 beef.csv
+-a----        28-12-2021     19:23          34583 DFS_23dec (1).ipynb
+-a----        10-02-2022     15:22         213207 DFS_23dec.ipynb
+-a----        03-02-2022     13:45            977 E-coupon.ipynb
+-a----        02-02-2022     14:50         222209 ecoupon_analysis.ipynb
+-a----        01-12-2022     20:10         343418 EDA.ipynb
+-a----        20-12-2021     17:29      172960747 file.csv
+-a----        21-12-2021     18:37      152250587 file1.csv
+-a----        30-06-2023     23:28           1340 import pandas as pd.py
+-a----        24-12-2021     11:34      138584040 laggeddata.csv
+-a----        15-06-2022     16:40         162999 MacauStoreAllocation-training-similarSKUGro
+                                                  uping-clean-1_Product_1_Model_Timeseries-ne
+                                                  w-working2.ipynb
+-a----        24-06-2023     11:39           4030 MAPE_PREDICTED_FINALS =
+                                                  DIVIDE(SUMX(SUMM.ini
+-a----        13-01-2022     18:31        8423504 member_ecoupon_all_20210819.csv
+-a----        13-01-2022     18:47        4682488 member_ecoupon_recent.csv
+-a----        09-04-2022     23:27        7642486 phishing.pkl
+-a----        20-12-2021     10:46      182555036 preprocessed_salesmao.pkl
+-a----        11-10-2021     09:48             13 README.md
+-a----        22-12-2021     15:06         393899 sample_submission.csv
+-a----        22-12-2021     15:05         975309 test.csv
+-a----        10-12-2022     20:17         186683 test.pdf
+-a----        22-12-2021     15:05       17333449 train.csv
+-a----        05-10-2021     18:06             10 Untitled-1.txt
+-a----        20-04-2023     14:37          16879 Untitled.ipynb
+-a----        06-03-2023     02:05          13639 Untitled1.ipynb
+-a----        05-04-2023     00:17         113941 Untitled10.ipynb
+-a----        29-12-2021     20:15          40858 Untitled11.ipynb
+-a----        04-01-2022     14:26            576 Untitled12.ipynb
+-a----        13-01-2022     18:43          42987 Untitled13.ipynb
+-a----        07-03-2022     13:16           1489 Untitled14.ipynb
+-a----        21-03-2022     13:32           2353 Untitled15.ipynb
+-a----        09-04-2022     23:29            791 Untitled16.ipynb
+-a----        28-08-2022     20:25          11630 Untitled17.ipynb
+-a----        10-12-2022     20:43        5559492 Untitled18.ipynb
+-a----        12-01-2023     16:03        3729473 Untitled19.ipynb
+-a----        09-04-2022     23:31          19514 Untitled2.ipynb
+-a----        01-02-2023     16:25            817 Untitled20.ipynb
+-a----        20-02-2023     21:29           1042 Untitled21.ipynb
+-a----        07-09-2021     13:46          11905 Untitled3.ipynb
+-a----        07-09-2021     14:55             72 Untitled4.ipynb
+-a----        07-09-2021     15:03          26637 Untitled5.ipynb
+-a----        10-12-2021     17:02            576 Untitled6.ipynb
+-a----        16-12-2021     12:19         240994 Untitled7.ipynb
+-a----        06-06-2022     22:40          28882 Untitled8.ipynb
+-a----        24-12-2021     16:42            576 Untitled9.ipynb
+
+
+PS C:\Users\pranathi.paruchu> less Dockerfile
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ less Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> ls
+
+
+    Directory: C:\Users\pranathi.paruchu
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        12-05-2023     22:18                .cache
+d-----        15-06-2022     16:51                .conda
+d-----        03-09-2021     19:42                .continuum
+d-----        07-09-2021     20:02                .cufflinks
+d-----        09-07-2023     20:01                .docker
+d-----        20-02-2023     21:27                .ipynb_checkpoints
+d-----        03-09-2021     19:48                .ipython
+d-----        27-04-2022     22:59                .jupyter
+d-----        07-09-2021     13:44                .matplotlib
+d-----        24-06-2022     13:49                .ms-ad
+d-----        24-06-2023     22:56                .ssh
+d-----        18-05-2023     00:22                .streamlit
+d-----        24-06-2023     23:11                .virtualenvs
+d-----        14-06-2023     21:23                .vscode
+d-----        05-06-2023     14:11                .wdm
+d-r---        31-08-2021     11:46                3D Objects
+d-----        08-07-2023     11:31                Anaconda3
+d-r---        31-08-2021     11:46                Contacts
+d-r---        09-07-2023     19:46                Desktop
+d-r---        09-07-2023     20:10                Documents
+d-r---        09-07-2023     20:42                Downloads
+d-r---        31-08-2021     11:46                Favorites
+d-----        07-05-2023     18:45                hello
+d-r---        31-08-2021     11:46                Links
+d-----        10-01-2023     15:16                Microsoft
+d-----        09-10-2021     14:59                miniconda3
+d-----        11-10-2021     18:53                mle-training
+d-r---        31-08-2021     11:46                Music
+d-----        16-04-2023     01:51                my_project
+d-r---        22-06-2022     18:48                OneDrive
+d-r---        07-06-2023     22:32                Pictures
+d-----        13-01-2022     15:08                Project
+d-r---        31-08-2021     11:46                Saved Games
+d-----        07-09-2021     16:54                seaborn-data
+d-r---        21-06-2023     13:00                Searches
+d-r---        08-09-2021     10:29                Videos
+-a----        15-04-2023     19:03          21383 .bash_history
+-a----        03-09-2021     19:43             25 .condarc
+-a----        27-05-2023     23:25            224 .gitconfig
+-a----        08-07-2023     16:48             20 .lesshst
+-a----        09-10-2021     15:08           7168 a
+-a----        16-12-2021     11:26           2087 beef.csv
+-a----        28-12-2021     19:23          34583 DFS_23dec (1).ipynb
+-a----        10-02-2022     15:22         213207 DFS_23dec.ipynb
+-a----        09-07-2023     20:38            469 Dockerfile
+-a----        03-02-2022     13:45            977 E-coupon.ipynb
+-a----        02-02-2022     14:50         222209 ecoupon_analysis.ipynb
+-a----        01-12-2022     20:10         343418 EDA.ipynb
+-a----        20-12-2021     17:29      172960747 file.csv
+-a----        21-12-2021     18:37      152250587 file1.csv
+-a----        30-06-2023     23:28           1340 import pandas as pd.py
+-a----        09-07-2023     20:38             30 index.html
+-a----        24-12-2021     11:34      138584040 laggeddata.csv
+-a----        15-06-2022     16:40         162999 MacauStoreAllocation-training-similarSKUGro
+                                                  uping-clean-1_Product_1_Model_Timeseries-ne
+                                                  w-working2.ipynb
+-a----        24-06-2023     11:39           4030 MAPE_PREDICTED_FINALS =
+                                                  DIVIDE(SUMX(SUMM.ini
+-a----        13-01-2022     18:31        8423504 member_ecoupon_all_20210819.csv
+-a----        13-01-2022     18:47        4682488 member_ecoupon_recent.csv
+-a----        09-04-2022     23:27        7642486 phishing.pkl
+-a----        20-12-2021     10:46      182555036 preprocessed_salesmao.pkl
+-a----        11-10-2021     09:48             13 README.md
+-a----        22-12-2021     15:06         393899 sample_submission.csv
+-a----        22-12-2021     15:05         975309 test.csv
+-a----        10-12-2022     20:17         186683 test.pdf
+-a----        22-12-2021     15:05       17333449 train.csv
+-a----        05-10-2021     18:06             10 Untitled-1.txt
+-a----        20-04-2023     14:37          16879 Untitled.ipynb
+-a----        06-03-2023     02:05          13639 Untitled1.ipynb
+-a----        05-04-2023     00:17         113941 Untitled10.ipynb
+-a----        29-12-2021     20:15          40858 Untitled11.ipynb
+-a----        04-01-2022     14:26            576 Untitled12.ipynb
+-a----        13-01-2022     18:43          42987 Untitled13.ipynb
+-a----        07-03-2022     13:16           1489 Untitled14.ipynb
+-a----        21-03-2022     13:32           2353 Untitled15.ipynb
+-a----        09-04-2022     23:29            791 Untitled16.ipynb
+-a----        28-08-2022     20:25          11630 Untitled17.ipynb
+-a----        10-12-2022     20:43        5559492 Untitled18.ipynb
+-a----        12-01-2023     16:03        3729473 Untitled19.ipynb
+-a----        09-04-2022     23:31          19514 Untitled2.ipynb
+-a----        01-02-2023     16:25            817 Untitled20.ipynb
+-a----        20-02-2023     21:29           1042 Untitled21.ipynb
+-a----        07-09-2021     13:46          11905 Untitled3.ipynb
+-a----        07-09-2021     14:55             72 Untitled4.ipynb
+-a----        07-09-2021     15:03          26637 Untitled5.ipynb
+-a----        10-12-2021     17:02            576 Untitled6.ipynb
+-a----        16-12-2021     12:19         240994 Untitled7.ipynb
+-a----        06-06-2022     22:40          28882 Untitled8.ipynb
+-a----        24-12-2021     16:42            576 Untitled9.ipynb
+
+
+PS C:\Users\pranathi.paruchu> docker build -t mynginx
+ERROR: "docker buildx build" requires exactly 1 argument.
+See 'docker buildx build --help'.
+
+Usage:  docker buildx build [OPTIONS] PATH | URL | -
+
+Start a build
+PS C:\Users\pranathi.paruchu> docker build -t mynginx .
+ => => resolve docker.io/library/debian:buster-slim@sha256:cddb688e1263b9752275b064171e  0.0s
+ => => sha256:bb8aa91b818f9c9d79620db405cdb1834ba9c611d7771ac0df7b1c897c237 529B / 529B  0.0s
+ => => sha256:440af094c94c50da90f9758cb86f9c444b533ae1aaa31ae901a90ce3f 1.46kB / 1.46kB  0.0s
+ => => sha256:90ac1ecaf92c8ae0cb37d29d8cc01b5802612c12edb933c369ad4c5 27.14MB / 27.14MB  2.0s
+ => => sha256:cddb688e1263b9752275b064171ef6ac9c70ae21a77c774339aecfb53690b 984B / 984B  0.0s
+ => => extracting sha256:90ac1ecaf92c8ae0cb37d29d8cc01b5802612c12edb933c369ad4c586ea94c  4.3s
+ => [internal] load build context                                                        0.1s
+ => => transferring context: 67B                                                         0.1s
+ => [2/4] RUN apt-get update     && apt-get install -y nginx     && apt-get clean       46.1s
+ => [3/4] RUN ln -sf /dev/stdout /var/log/nginx/access.log     && ln -sf /dev/stderr /v  0.5s
+ => [4/4] COPY index.html /var/www/html/                                                 0.0s
+ => exporting to image                                                                   1.1s
+ => => exporting layers                                                                  1.1s
+ => => writing image sha256:93a629688b3e926de0a292be7cc629aa3477721d3e962e379b51791cc27  0.0s
+ => => naming to docker.io/library/mynginx                                               0.0s
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview
+PS C:\Users\pranathi.paruchu> docker run -dit mynginx
+79390aaba51a0bd585ad39780aa1abc99b6c2a353272835788b1bc69d558b312
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     N
+AMES
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   13 seconds ago   Up 12 seconds   80/tcp    f
+riendly_pike
+8f50bde89942   debian    "bash"                   45 minutes ago   Up 45 minutes             z
+en_taussig
+PS C:\Users\pranathi.paruchu> docker images
+REPOSITORY   TAG             IMAGE ID       CREATED              SIZE
+mynginx      latest          93a629688b3e   About a minute ago   148MB
+nginx        latest          021283c8eb95   4 days ago           187MB
+nginx        myblog_stable   021283c8eb95   4 days ago           187MB
+debian       latest          3676c78a12ad   5 days ago           116MB
+PS C:\Users\pranathi.paruchu> docker rmi nginx:myblog_stable
+Untagged: nginx:myblog_stable
+PS C:\Users\pranathi.paruchu> docker images
+REPOSITORY   TAG       IMAGE ID       CREATED         SIZE
+mynginx      latest    93a629688b3e   2 minutes ago   148MB
+nginx        latest    021283c8eb95   4 days ago      187MB
+debian       latest    3676c78a12ad   5 days ago      116MB
+PS C:\Users\pranathi.paruchu> docker pull jenkins:latest
+Error response from daemon: manifest for jenkins:latest not found: manifest unknown: manifest
+unknown
+PS C:\Users\pranathi.paruchu> docker pull jenkins
+Using default tag: latest
+Error response from daemon: manifest for jenkins:latest not found: manifest unknown: manifest
+unknown
+PS C:\Users\pranathi.paruchu> docker search --limit 5 apache
+NAME        DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+httpd       The Apache HTTP Server Project                  4471      [OK]
+tomcat      Apache Tomcat is an open source implementati…   3565      [OK]
+maven       Apache Maven is a software project managemen…   1495      [OK]
+zookeeper   Apache ZooKeeper is an open-source server wh…   1362      [OK]
+cassandra   Apache Cassandra is an open-source distribut…   1475      [OK]
+PS C:\Users\pranathi.paruchu> docker pull httpd:2-alpine
+2-alpine: Pulling from library/httpd
+31e352740f53: Pull complete
+ec139fe14694: Pull complete
+fd0a7d757a33: Pull complete
+8f3d6aa86b7c: Pull complete
+a1adb2f7e6ea: Pull complete
+4d127a67555b: Pull complete
+Digest: sha256:08792333fe72e072ccc7d658099c665d8261a4d5f960b0adcbafdcc0780eb66d
+Status: Downloaded newer image for httpd:2-alpine
+docker.io/library/httpd:2-alpine
+
+What's Next?
+  View summary of image vulnerabilities and recommendations → docker scout quickview httpd:2-a
+lpine
+PS C:\Users\pranathi.paruchu> docker images
+REPOSITORY   TAG        IMAGE ID       CREATED          SIZE
+mynginx      latest     93a629688b3e   11 minutes ago   148MB
+nginx        latest     021283c8eb95   4 days ago       187MB
+debian       latest     3676c78a12ad   5 days ago       116MB
+httpd        2-alpine   352fdc2b5b26   3 weeks ago      59.1MB
+PS C:\Users\pranathi.paruchu> docker system df
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          4         2         510.8MB   246MB (48%)
+Containers      4         2         2B        0B (0%)
+Local Volumes   0         0         0B        0B
+Build Cache     7         0         499B      499B
+PS C:\Users\pranathi.paruchu> docker rmi httpd:2-alpine
+Untagged: httpd:2-alpine
+Untagged: httpd@sha256:08792333fe72e072ccc7d658099c665d8261a4d5f960b0adcbafdcc0780eb66d
+Deleted: sha256:352fdc2b5b266123d131562c40f495795c6745bbcffc843adc23f1336e183f85
+Deleted: sha256:efb5ddda7249b492855bf02b25c336131acc419e0d54c8ae03923c11ebfc5344
+Deleted: sha256:7fdf30279c57e4e9d3001315cc78052ddfd922e4376204c4cce5a1477e2e6fa7
+Deleted: sha256:dbf373f1b85557e934e35856b3621d8b7f7b187cd38a90f5122ff4f6106ae383
+Deleted: sha256:ac90244740932c8551b992ff49b2daf45f7c35d04412263cdd550bc82a622138
+Deleted: sha256:c6f3256b79fb1f07fff3d403d0df94fab1a45e46a0adf7f9565fbe1e7554026d
+Deleted: sha256:78a822fe2a2d2c84f3de4a403188c45f623017d6a4521d23047c9fbb0801794c
+PS C:\Users\pranathi.paruchu> docker run -dit debian
+b6599088ac4d2280a1c32df65a722c8bd1c0255c0d769186cc598df612859d56
+PS C:\Users\pranathi.paruchu> docker run -dit --name=web debian
+cdae41d6b2e5be23f12a94f8b83e3ef2b204669de6a85b42f558d17f3d9c917a
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS
+     NAMES
+cdae41d6b2e5   debian    "bash"                   6 seconds ago       Up 6 seconds
+     web
+b6599088ac4d   debian    "bash"                   25 seconds ago      Up 24 seconds
+     sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   15 minutes ago      Up 15 minutes      80/tc
+p    friendly_pike
+8f50bde89942   debian    "bash"                   About an hour ago   Up About an hour
+     zen_taussig
+PS C:\Users\pranathi.paruchu> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS
+      PORTS     NAMES
+cdae41d6b2e5   debian    "bash"                   38 seconds ago      Up 37 seconds
+                web
+b6599088ac4d   debian    "bash"                   57 seconds ago      Up 56 seconds
+                sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   15 minutes ago      Up 15 minutes
+      80/tcp    friendly_pike
+c379e49020f5   debian    "bash"                   46 minutes ago      Exited (137) 45 minutes
+ago             keen_johnson
+8c59845935aa   debian    "bash"                   50 minutes ago      Exited (137) 47 minutes
+ago             jolly_jones
+8f50bde89942   debian    "bash"                   About an hour ago   Up About an hour
+                zen_taussig
+PS C:\Users\pranathi.paruchu> docker ps -l
+CONTAINER ID   IMAGE     COMMAND   CREATED              STATUS              PORTS     NAMES
+cdae41d6b2e5   debian    "bash"    About a minute ago   Up About a minute             web
+PS C:\Users\pranathi.paruchu> docker run -dit --name=web debian
+docker: Error response from daemon: Conflict. The container name "/web" is already in use by c
+ontainer "cdae41d6b2e5be23f12a94f8b83e3ef2b204669de6a85b42f558d17f3d9c917a". You have to remov
+e (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+PS C:\Users\pranathi.paruchu> docker stop web
+web
+PS C:\Users\pranathi.paruchu> docker rm web
+web
+PS C:\Users\pranathi.paruchu> docker start web
+Error response from daemon: No such container: web
+Error: failed to start containers: web
+PS C:\Users\pranathi.paruchu> docker run --help|less
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:19
++ docker run --help|less
++                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+less : The term 'less' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:19
++ docker run --help|less
++                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (less:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> docker run --help
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Create and run a new container from an image
+
+Aliases:
+  docker container run, docker run
+
+Options:
+      --add-host list                  Add a custom host-to-IP mapping
+                                       (host:ip)
+      --annotation map                 Add an annotation to the container
+                                       (passed through to the OCI
+                                       runtime) (default map[])
+  -a, --attach list                    Attach to STDIN, STDOUT or STDERR
+      --blkio-weight uint16            Block IO (relative weight),
+                                       between 10 and 1000, or 0 to
+                                       disable (default 0)
+      --blkio-weight-device list       Block IO weight (relative device
+                                       weight) (default [])
+      --cap-add list                   Add Linux capabilities
+      --cap-drop list                  Drop Linux capabilities
+      --cgroup-parent string           Optional parent cgroup for the
+                                       container
+      --cgroupns string                Cgroup namespace to use
+                                       (host|private)
+                                       'host':    Run the container in
+                                       the Docker host's cgroup namespace
+                                       'private': Run the container in
+                                       its own private cgroup namespace
+                                       '':        Use the cgroup
+                                       namespace as configured by the
+                                                  default-cgroupns-mode
+                                       option on the daemon (default)
+      --cidfile string                 Write the container ID to the file
+      --cpu-period int                 Limit CPU CFS (Completely Fair
+                                       Scheduler) period
+      --cpu-quota int                  Limit CPU CFS (Completely Fair
+                                       Scheduler) quota
+      --cpu-rt-period int              Limit CPU real-time period in
+                                       microseconds
+      --cpu-rt-runtime int             Limit CPU real-time runtime in
+                                       microseconds
+  -c, --cpu-shares int                 CPU shares (relative weight)
+      --cpus decimal                   Number of CPUs
+      --cpuset-cpus string             CPUs in which to allow execution
+                                       (0-3, 0,1)
+      --cpuset-mems string             MEMs in which to allow execution
+                                       (0-3, 0,1)
+  -d, --detach                         Run container in background and
+                                       print container ID
+      --detach-keys string             Override the key sequence for
+                                       detaching a container
+      --device list                    Add a host device to the container
+      --device-cgroup-rule list        Add a rule to the cgroup allowed
+                                       devices list
+      --device-read-bps list           Limit read rate (bytes per second)
+                                       from a device (default [])
+      --device-read-iops list          Limit read rate (IO per second)
+                                       from a device (default [])
+      --device-write-bps list          Limit write rate (bytes per
+                                       second) to a device (default [])
+      --device-write-iops list         Limit write rate (IO per second)
+                                       to a device (default [])
+      --disable-content-trust          Skip image verification (default true)
+      --dns list                       Set custom DNS servers
+      --dns-option list                Set DNS options
+      --dns-search list                Set custom DNS search domains
+      --domainname string              Container NIS domain name
+      --entrypoint string              Overwrite the default ENTRYPOINT
+                                       of the image
+  -e, --env list                       Set environment variables
+      --env-file list                  Read in a file of environment variables
+      --expose list                    Expose a port or a range of ports
+      --gpus gpu-request               GPU devices to add to the
+                                       container ('all' to pass all GPUs)
+      --group-add list                 Add additional groups to join
+      --health-cmd string              Command to run to check health
+      --health-interval duration       Time between running the check
+                                       (ms|s|m|h) (default 0s)
+      --health-retries int             Consecutive failures needed to
+                                       report unhealthy
+      --health-start-period duration   Start period for the container to
+                                       initialize before starting
+                                       health-retries countdown
+                                       (ms|s|m|h) (default 0s)
+      --health-timeout duration        Maximum time to allow one check to
+                                       run (ms|s|m|h) (default 0s)
+      --help                           Print usage
+  -h, --hostname string                Container host name
+      --init                           Run an init inside the container
+                                       that forwards signals and reaps
+                                       processes
+  -i, --interactive                    Keep STDIN open even if not attached
+      --ip string                      IPv4 address (e.g., 172.30.100.104)
+      --ip6 string                     IPv6 address (e.g., 2001:db8::33)
+      --ipc string                     IPC mode to use
+      --isolation string               Container isolation technology
+      --kernel-memory bytes            Kernel memory limit
+  -l, --label list                     Set meta data on a container
+      --label-file list                Read in a line delimited file of labels
+      --link list                      Add link to another container
+      --link-local-ip list             Container IPv4/IPv6 link-local
+                                       addresses
+      --log-driver string              Logging driver for the container
+      --log-opt list                   Log driver options
+      --mac-address string             Container MAC address (e.g.,
+                                       92:d0:c6:0a:29:33)
+  -m, --memory bytes                   Memory limit
+      --memory-reservation bytes       Memory soft limit
+      --memory-swap bytes              Swap limit equal to memory plus
+                                       swap: '-1' to enable unlimited swap
+      --memory-swappiness int          Tune container memory swappiness
+                                       (0 to 100) (default -1)
+      --mount mount                    Attach a filesystem mount to the
+                                       container
+      --name string                    Assign a name to the container
+      --network network                Connect a container to a network
+      --network-alias list             Add network-scoped alias for the
+                                       container
+      --no-healthcheck                 Disable any container-specified
+                                       HEALTHCHECK
+      --oom-kill-disable               Disable OOM Killer
+      --oom-score-adj int              Tune host's OOM preferences (-1000
+                                       to 1000)
+      --pid string                     PID namespace to use
+      --pids-limit int                 Tune container pids limit (set -1
+                                       for unlimited)
+      --platform string                Set platform if server is
+                                       multi-platform capable
+      --privileged                     Give extended privileges to this
+                                       container
+  -p, --publish list                   Publish a container's port(s) to
+                                       the host
+  -P, --publish-all                    Publish all exposed ports to
+                                       random ports
+      --pull string                    Pull image before running
+                                       ("always", "missing", "never")
+                                       (default "missing")
+  -q, --quiet                          Suppress the pull output
+      --read-only                      Mount the container's root
+                                       filesystem as read only
+      --restart string                 Restart policy to apply when a
+                                       container exits (default "no")
+      --rm                             Automatically remove the container
+                                       when it exits
+      --runtime string                 Runtime to use for this container
+      --security-opt list              Security Options
+      --shm-size bytes                 Size of /dev/shm
+      --sig-proxy                      Proxy received signals to the
+                                       process (default true)
+      --stop-signal string             Signal to stop the container
+      --stop-timeout int               Timeout (in seconds) to stop a
+                                       container
+      --storage-opt list               Storage driver options for the
+                                       container
+      --sysctl map                     Sysctl options (default map[])
+      --tmpfs list                     Mount a tmpfs directory
+  -t, --tty                            Allocate a pseudo-TTY
+      --ulimit ulimit                  Ulimit options (default [])
+  -u, --user string                    Username or UID (format:
+                                       <name|uid>[:<group|gid>])
+      --userns string                  User namespace to use
+      --uts string                     UTS namespace to use
+  -v, --volume list                    Bind mount a volume
+      --volume-driver string           Optional volume driver for the
+                                       container
+      --volumes-from list              Mount volumes from the specified
+                                       container(s)
+  -w, --workdir string                 Working directory inside the container
+PS C:\Users\pranathi.paruchu> docker run -dit --restart=always --name=fourth_container
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Create and run a new container from an image
+PS C:\Users\pranathi.paruchu> docker run -dit --restart=always --name=fourth_container debain
+Unable to find image 'debain:latest' locally
+docker: Error response from daemon: pull access denied for debain, repository does not exist o
+r may require 'docker login': denied: requested access to the resource is denied.
+See 'docker run --help'.
+PS C:\Users\pranathi.paruchu> docker run -dit --restart=always --name=fourth_container debian
+b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f3c2c7bbcd3b70231135f3e
+PS C:\Users\pranathi.paruchu> docker inspect fourth_container | grep -A3 Restart
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:35
++ docker inspect fourth_container | grep -A3 Restart
++                                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+grep : The term 'grep' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:35
++ docker inspect fourth_container | grep -A3 Restart
++                                   ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> docker inspect fourth_container
+[
+    {
+        "Id": "b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f3c2c7bbcd3b70231135f3e",
+        "Created": "2023-07-09T15:57:43.013585738Z",
+        "Path": "bash",
+        "Args": [],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 13202,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-07-09T15:57:43.573667285Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:3676c78a12ad77e170916695d2f192797ddd3eb653d7a1b1ad4c20ab5471891a",
+        "ResolvConfPath": "/var/lib/docker/containers/b76c9b2efaad07dba5527b7aa9c21ab55dd008fa
+4f3c2c7bbcd3b70231135f3e/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f
+3c2c7bbcd3b70231135f3e/hostname",
+        "HostsPath": "/var/lib/docker/containers/b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f3c2
+c7bbcd3b70231135f3e/hosts",
+        "LogPath": "/var/lib/docker/containers/b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f3c2c7
+bbcd3b70231135f3e/b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f3c2c7bbcd3b70231135f3e-json.log",
+        "Name": "/fourth_container",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "always",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                49,
+                94
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "host",
+            "Dns": [],
+            "DnsOptions": [],
+            "DnsSearch": [],
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": [],
+            "BlkioDeviceReadBps": [],
+            "BlkioDeviceWriteBps": [],
+            "BlkioDeviceReadIOps": [],
+            "BlkioDeviceWriteIOps": [],
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": [],
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": false,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/70690baa28ca267257f156b18c44878aff42ddaa
+e01cc4e45ab2268e3fa16185-init/diff:/var/lib/docker/overlay2/b8ab91f4c8892d42a4c5b5e24a4f1ca0d4
+01fead101989f7d55ad7cde9d50f42/diff",
+                "MergedDir": "/var/lib/docker/overlay2/70690baa28ca267257f156b18c44878aff42dda
+ae01cc4e45ab2268e3fa16185/merged",
+                "UpperDir": "/var/lib/docker/overlay2/70690baa28ca267257f156b18c44878aff42ddaa
+e01cc4e45ab2268e3fa16185/diff",
+                "WorkDir": "/var/lib/docker/overlay2/70690baa28ca267257f156b18c44878aff42ddaae
+01cc4e45ab2268e3fa16185/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "b76c9b2efaad",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": true,
+            "OpenStdin": true,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "bash"
+            ],
+            "Image": "debian",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": {}
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "e4c0750959d0e5f20570873be3123ac8f4f6bba59f68a17ed8e3aa50c0fa560a",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {},
+            "SandboxKey": "/var/run/docker/netns/e4c0750959d0",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "b42650259849f643647d8287bc70d07ad7936581d3279480dbfbcab2f4baa262",
+            "Gateway": "172.17.0.1",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "172.17.0.5",
+            "IPPrefixLen": 16,
+            "IPv6Gateway": "",
+            "MacAddress": "02:42:ac:11:00:05",
+            "Networks": {
+                "bridge": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": null,
+                    "NetworkID": "7b0f817c9e5e001f1a1b3f0988be1204a751493d16fb16b1399294491443
+0217",
+                    "EndpointID": "b42650259849f643647d8287bc70d07ad7936581d3279480dbfbcab2f4b
+aa262",
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.5",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:11:00:05",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
+PS C:\Users\pranathi.paruchu> docker stop fourth_container
+fourth_container
+PS C:\Users\pranathi.paruchu> docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to continue? [y/N] y
+Deleted Containers:
+b76c9b2efaad07dba5527b7aa9c21ab55dd008fa4f3c2c7bbcd3b70231135f3e
+c379e49020f53449a32a8be3bedeaa4a8d11504f69bd2ae7af6dae3160f8bc54
+8c59845935aa6421c036b46536583d6fd5259ce146f82283f40c859888305346
+
+Deleted build cache objects:
+c3i0fzhzhva5uq050ioz52nm9
+p3qq8mfhd1ur8vakp46i07241
+v9vy1ksw8sz7vprvjtdcpp76t
+
+Total reclaimed space: 499B
+PS C:\Users\pranathi.paruchu> docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS
+     NAMES
+b6599088ac4d   debian    "bash"                   29 minutes ago      Up 29 minutes
+     sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   43 minutes ago      Up 43 minutes      80/tc
+p    friendly_pike
+8f50bde89942   debian    "bash"                   About an hour ago   Up About an hour
+     zen_taussig
+PS C:\Users\pranathi.paruchu> docker run -dit hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+719385e32844: Pull complete
+Digest: sha256:a13ec89cdf897b3e551bd9f89d499db6ff3a7f44c5b9eb8bca40da20eb4ea1fa
+Status: Downloaded newer image for hello-world:latest
+75846f568d11cebfab4305ce45c1742c80f2a0e3da265924683132d24de87d3b
+PS C:\Users\pranathi.paruchu> docker logs --help
+
+Usage:  docker logs [OPTIONS] CONTAINER
+
+Fetch the logs of a container
+
+Aliases:
+  docker container logs, docker logs
+
+Options:
+      --details        Show extra details provided to logs
+  -f, --follow         Follow log output
+      --since string   Show logs since timestamp (e.g.
+                       "2013-01-02T13:23:37Z") or relative (e.g. "42m"
+                       for 42 minutes)
+  -n, --tail string    Number of lines to show from the end of the logs
+                       (default "all")
+  -t, --timestamps     Show timestamps
+      --until string   Show logs before a timestamp (e.g.
+                       "2013-01-02T13:23:37Z") or relative (e.g. "42m"
+                       for 42 minutes)
+PS C:\Users\pranathi.paruchu> docker logs -f friendly_pike
+
+PS C:\Users\pranathi.paruchu> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\Users\pranathi.paruchu> docker run -dit redis
+Unable to find image 'redis:latest' locally
+latest: Pulling from library/redis
+faef57eae888: Already exists
+bb595d48e52d: Pull complete
+d479b54c3bb2: Pull complete
+4bd00b511c2c: Pull complete
+286fb62a80b5: Pull complete
+520d4480047f: Pull complete
+Digest: sha256:1008c73f08e9f913868e2fa2e843212b62ea5bf3c66435d87bc7a6207bc0f1b4
+Status: Downloaded newer image for redis:latest
+24497a001e9799efdf2f90751a07f4e1ebbc5ee7af2c460f920166f744b77d82
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS
+NAMES
+24497a001e97   redis     "docker-entrypoint.s…"   27 seconds ago   Up 25 seconds   6379/tcp
+recursing_knuth
+b6599088ac4d   debian    "bash"                   39 minutes ago   Up 39 minutes
+sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   54 minutes ago   Up 54 minutes   80/tcp
+friendly_pike
+8f50bde89942   debian    "bash"                   2 hours ago      Up 2 hours
+zen_taussig
+PS C:\Users\pranathi.paruchu> docker run -dit --name redis_container redis
+0bb5f0e040040234c2c0de91f367236c78349f6b825f61a2036085c4e07d57b1
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS              POR
+TS      NAMES
+0bb5f0e04004   redis     "docker-entrypoint.s…"   7 seconds ago        Up 5 seconds        637
+9/tcp   redis_container
+24497a001e97   redis     "docker-entrypoint.s…"   About a minute ago   Up About a minute   637
+9/tcp   recursing_knuth
+b6599088ac4d   debian    "bash"                   40 minutes ago       Up 40 minutes
+        sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   55 minutes ago       Up 55 minutes       80/
+tcp     friendly_pike
+8f50bde89942   debian    "bash"                   2 hours ago          Up 2 hours
+        zen_taussig
+PS C:\Users\pranathi.paruchu> docker stop redis_container
+redis_container
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS
+NAMES
+24497a001e97   redis     "docker-entrypoint.s…"   2 minutes ago    Up 2 minutes    6379/tcp
+recursing_knuth
+b6599088ac4d   debian    "bash"                   41 minutes ago   Up 41 minutes
+sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   56 minutes ago   Up 56 minutes   80/tcp
+friendly_pike
+8f50bde89942   debian    "bash"                   2 hours ago      Up 2 hours
+zen_taussig
+PS C:\Users\pranathi.paruchu> docker run --rm hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+PS C:\Users\pranathi.paruchu> docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS
+         PORTS      NAMES
+0bb5f0e04004   redis         "docker-entrypoint.s…"   2 minutes ago    Exited (0) About a minu
+te ago              redis_container
+24497a001e97   redis         "docker-entrypoint.s…"   3 minutes ago    Up 3 minutes
+         6379/tcp   recursing_knuth
+75846f568d11   hello-world   "/hello"                 10 minutes ago   Exited (0) 10 minutes a
+go                  dazzling_bose
+b6599088ac4d   debian        "bash"                   43 minutes ago   Up 42 minutes
+                    sweet_mahavira
+79390aaba51a   mynginx       "nginx -g 'daemon of…"   57 minutes ago   Up 57 minutes
+         80/tcp     friendly_pike
+8f50bde89942   debian        "bash"                   2 hours ago      Up 2 hours
+                    zen_taussig
+PS C:\Users\pranathi.paruchu> docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+PS C:\Users\pranathi.paruchu> docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS
+     PORTS      NAMES
+1c49f39d16cb   hello-world   "/hello"                 7 seconds ago    Exited (0) 6 seconds ag
+o               loving_mcnulty
+0bb5f0e04004   redis         "docker-entrypoint.s…"   2 minutes ago    Exited (0) 2 minutes ag
+o               redis_container
+24497a001e97   redis         "docker-entrypoint.s…"   4 minutes ago    Up 4 minutes
+     6379/tcp   recursing_knuth
+75846f568d11   hello-world   "/hello"                 10 minutes ago   Exited (0) 10 minutes a
+go              dazzling_bose
+b6599088ac4d   debian        "bash"                   43 minutes ago   Up 43 minutes
+                sweet_mahavira
+79390aaba51a   mynginx       "nginx -g 'daemon of…"   58 minutes ago   Up 58 minutes
+     80/tcp     friendly_pike
+8f50bde89942   debian        "bash"                   2 hours ago      Up 2 hours
+                zen_taussig
+PS C:\Users\pranathi.paruchu> docker run -dit --name test_container hello-world
+a6faff3220dc210ccee7445fa75944c426da3c62ff8d77fdc2baeb75ee473ccf
+PS C:\Users\pranathi.paruchu> docker logs test_container
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS
+NAMES
+24497a001e97   redis     "docker-entrypoint.s…"   5 minutes ago    Up 5 minutes    6379/tcp
+recursing_knuth
+b6599088ac4d   debian    "bash"                   44 minutes ago   Up 44 minutes
+sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   59 minutes ago   Up 59 minutes   80/tcp
+friendly_pike
+8f50bde89942   debian    "bash"                   2 hours ago      Up 2 hours
+zen_taussig
+PS C:\Users\pranathi.paruchu> docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS
+             PORTS      NAMES
+a6faff3220dc   hello-world   "/hello"                 51 seconds ago       Exited (0) 49 secon
+ds ago                  test_container
+1c49f39d16cb   hello-world   "/hello"                 About a minute ago   Exited (0) About a
+minute ago              loving_mcnulty
+0bb5f0e04004   redis         "docker-entrypoint.s…"   4 minutes ago        Exited (0) 3 minute
+s ago                   redis_container
+24497a001e97   redis         "docker-entrypoint.s…"   5 minutes ago        Up 5 minutes
+             6379/tcp   recursing_knuth
+75846f568d11   hello-world   "/hello"                 12 minutes ago       Exited (0) 12 minut
+es ago                  dazzling_bose
+b6599088ac4d   debian        "bash"                   44 minutes ago       Up 44 minutes
+                        sweet_mahavira
+79390aaba51a   mynginx       "nginx -g 'daemon of…"   59 minutes ago       Up 59 minutes
+             80/tcp     friendly_pike
+8f50bde89942   debian        "bash"                   2 hours ago          Up 2 hours
+                        zen_taussig
+PS C:\Users\pranathi.paruchu> docker logs -t
+"docker logs" requires exactly 1 argument.
+See 'docker logs --help'.
+
+Usage:  docker logs [OPTIONS] CONTAINER
+
+Fetch the logs of a container
+PS C:\Users\pranathi.paruchu> docker logs -t test_container
+2023-07-09T16:14:52.201307130Z
+2023-07-09T16:14:52.201390894Z Hello from Docker!
+2023-07-09T16:14:52.201401189Z This message shows that your installation appears to be working
+ correctly.
+2023-07-09T16:14:52.201408646Z
+2023-07-09T16:14:52.201418607Z To generate this message, Docker took the following steps:
+2023-07-09T16:14:52.201425671Z  1. The Docker client contacted the Docker daemon.
+2023-07-09T16:14:52.201432252Z  2. The Docker daemon pulled the "hello-world" image from the D
+ocker Hub.
+2023-07-09T16:14:52.201447229Z     (amd64)
+2023-07-09T16:14:52.201454409Z  3. The Docker daemon created a new container from that image w
+hich runs the
+2023-07-09T16:14:52.201460308Z     executable that produces the output you are currently readi
+ng.
+2023-07-09T16:14:52.201466698Z  4. The Docker daemon streamed that output to the Docker client
+, which sent it
+2023-07-09T16:14:52.201473410Z     to your terminal.
+2023-07-09T16:14:52.201480102Z
+2023-07-09T16:14:52.201486436Z To try something more ambitious, you can run an Ubuntu containe
+r with:
+2023-07-09T16:14:52.201492605Z  $ docker run -it ubuntu bash
+2023-07-09T16:14:52.201498862Z
+2023-07-09T16:14:52.201504548Z Share images, automate workflows, and more with a free Docker I
+D:
+2023-07-09T16:14:52.201510830Z  https://hub.docker.com/
+2023-07-09T16:14:52.201517146Z
+2023-07-09T16:14:52.201522549Z For more examples and ideas, visit:
+2023-07-09T16:14:52.201529295Z  https://docs.docker.com/get-started/
+2023-07-09T16:14:52.201535313Z
+PS C:\Users\pranathi.paruchu> docker run --name our_nginex -d -p 8080:80 nginx
+046cb5b95baaffd0eccae328ec3160778c684351d53bf4b55de4e521adc5bd0c
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED             STATUS             PORTS
+                  NAMES
+046cb5b95baa   nginx     "/docker-entrypoint.…"   22 seconds ago      Up 21 seconds      0.0.0
+.0:8080->80/tcp   our_nginex
+24497a001e97   redis     "docker-entrypoint.s…"   17 minutes ago      Up 17 minutes      6379/
+tcp               recursing_knuth
+b6599088ac4d   debian    "bash"                   56 minutes ago      Up 56 minutes
+                  sweet_mahavira
+79390aaba51a   mynginx   "nginx -g 'daemon of…"   About an hour ago   Up About an hour   80/tc
+p                 friendly_pike
+8f50bde89942   debian    "bash"                   2 hours ago         Up 2 hours
+                  zen_taussig
+PS C:\Users\pranathi.paruchu> curl http://locahost:8080
+>> TerminatingError(Invoke-WebRequest): "The remote name could not be resolved: 'locahost'"
+curl : The remote name could not be resolved: 'locahost'
+At line:1 char:1
++ curl http://locahost:8080
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [Invoke-WebRequest], 
+WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeWebRequestCommand
+curl : The remote name could not be resolved: 'locahost'
+At line:1 char:1
++ curl http://locahost:8080
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (System.Net.HttpWebRequest:HttpWebRequest) [
+   Invoke-WebRequest], WebException
+    + FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.In
+   vokeWebRequestCommand
+
+PS C:\Users\pranathi.paruchu> curl http://localhost:8080
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <!DOCTYPE html>
+                    <html>
+                    <head>
+                    <title>Welcome to nginx!</title>
+                    <style>
+                    html { color-scheme: light dark; }
+                    body { width: 35em; margin: 0 auto;
+                    font-family: Tahoma, Verdana, Arial, sans-serif; }
+                    </style...
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Accept-Ranges: bytes
+                    Content-Length: 615
+                    Content-Type: text/html
+                    Date: Sun, 09 Jul 2023 16:28:56 GMT
+                    ETag: "6488865a-267"
+                    Last-Modified: Tue, 13 Jun 2023 ...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Accept-Ranges, bytes], [Content-Length,
+                    615], [Content-Type, text/html]...}
+Images            : {}
+InputFields       : {}
+Links             : {@{innerHTML=nginx.org; innerText=nginx.org; outerHTML=<A
+                    href="http://nginx.org/">nginx.org</A>; outerText=nginx.org; tagName=A;
+                    href=http://nginx.org/}, @{innerHTML=nginx.com; innerText=nginx.com;
+                    outerHTML=<A href="http://nginx.com/">nginx.com</A>;
+                    outerText=nginx.com; tagName=A; href=http://nginx.com/}}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 615
+
+
+
+PS C:\Users\pranathi.paruchu> ip a
+ip : The term 'ip' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ ip a
++ ~~
+    + CategoryInfo          : ObjectNotFound: (ip:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ip : The term 'ip' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ ip a
++ ~~
+    + CategoryInfo          : ObjectNotFound: (ip:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> docker stop our_nginx
+Error response from daemon: No such container: our_nginx
+PS C:\Users\pranathi.paruchu> docker stop our_nginex
+our_nginex
+PS C:\Users\pranathi.paruchu> mkdir webpages
+
+
+    Directory: C:\Users\pranathi.paruchu
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        09-07-2023     22:03                webpages
+
+
+PS C:\Users\pranathi.paruchu> cd webpages
+PS C:\Users\pranathi.paruchu\webpages> echo "Hi, from inside the container!" > index.html
+>> ParameterBinding(Out-File): name="InputObject"; value="Hi, from inside the container!"
+PS C:\Users\pranathi.paruchu\webpages> cd ..
+PS C:\Users\pranathi.paruchu> docker run -p 8080:80 --name another_nginx -v ${PWD}/webpages:/usr/share/nginx/html:ro -d nginx
+2394e330c6c7bea8f0d9777aadb75a9806fc9aaa0e9b717572b2b9b350d489e0
+PS C:\Users\pranathi.paruchu> echo ${PWD}
+
+Path
+----
+C:\Users\pranathi.paruchu
+
+
+PS C:\Users\pranathi.paruchu> curl http://localhost:8080
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : ÿþH i ,   f r o m   i n s i d e   t h e   c o n t a i n e r !  
+                     
+RawContent        : HTTP/1.1 200 OK
+                    Connection: keep-alive
+                    Accept-Ranges: bytes
+                    Content-Length: 66
+                    Content-Type: text/html
+                    Date: Sun, 09 Jul 2023 17:32:07 GMT
+                    ETag: "64aae18e-42"
+                    Last-Modified: Sun, 09 Jul 2023 16...
+Forms             : {}
+Headers           : {[Connection, keep-alive], [Accept-Ranges, bytes], [Content-Length, 66],
+                    [Content-Type, text/html]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 66
+
+
+
+PS C:\Users\pranathi.paruchu> docker run --name apache_welcome -d -p 9900:80 httpd:latest
+docker: error during connect: this error may indicate that the docker daemon is not running: Post "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/containers/create?name=apache_welcome": open //./
+pipe/docker_engine: The system cannot find the file specified.
+See 'docker run --help'.
+PS C:\Users\pranathi.paruchu> docker run --name apache_welcome -d -p 9900:80 httpd
+docker: error during connect: this error may indicate that the docker daemon is not running: Post "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/containers/create?name=apache_welcome": open //./
+pipe/docker_engine: The system cannot find the file specified.
+See 'docker run --help'.
+PS C:\Users\pranathi.paruchu> docker run --name apache_welcome -d -p 9900:80 httpd
+Unable to find image 'httpd:latest' locally
+latest: Pulling from library/httpd
+faef57eae888: Already exists
+7ebb04e7a9fb: Pull complete
+50832d624967: Pull complete
+efcbeeba1c88: Pull complete
+90997b0c5be2: Pull complete
+Digest: sha256:8059bdd0058510c03ae4c808de8c4fd2c1f3c1b6d9ea75487f1e5caa5ececa02
+Status: Downloaded newer image for httpd:latest
+b11aa1df50c9474bd4fa8b4e3676578b472556e1298bc7f1aae39e43aaddd773
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED              STATUS              PORTS                  NAMES
+b11aa1df50c9   httpd     "httpd-foreground"   About a minute ago   Up About a minute   0.0.0.0:9900->80/tcp   apache_welcome
+8f50bde89942   debian    "bash"               6 days ago           Up 2 minutes                               zen_taussig
+PS C:\Users\pranathi.paruchu> curl http://localhost:9900
+
+
+StatusCode        : 200
+StatusDescription : OK
+Content           : <html><body><h1>It works!</h1></body></html>
+
+RawContent        : HTTP/1.1 200 OK
+                    Keep-Alive: timeout=5, max=100
+                    Connection: Keep-Alive
+                    Accept-Ranges: bytes
+                    Content-Length: 45
+                    Content-Type: text/html
+                    Date: Sun, 16 Jul 2023 11:43:10 GMT
+                    ETag: "2d-432a5e4a73a80...
+Forms             : {}
+Headers           : {[Keep-Alive, timeout=5, max=100], [Connection, Keep-Alive], [Accept-Ranges, bytes], [Content-Length, 45]...}
+Images            : {}
+InputFields       : {}
+Links             : {}
+ParsedHtml        : mshtml.HTMLDocumentClass
+RawContentLength  : 45
+
+
+
+PS C:\Users\pranathi.paruchu> docker run -it --name apache httpd /bin/bash
+root@b12a8a935484:/usr/local/apache2# pwd
+/usr/local/apache2
+root@b12a8a935484:/usr/local/apache2# ls
+bin  build  cgi-bin  conf  error  htdocs  icons  include  logs  modules
+root@b12a8a935484:/usr/local/apache2# exit
+exit
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED       STATUS       PORTS                  NAMES
+b11aa1df50c9   httpd     "httpd-foreground"   2 hours ago   Up 2 hours   0.0.0.0:9900->80/tcp   apache_welcome
+8f50bde89942   debian    "bash"               6 days ago    Up 2 hours                          zen_taussig
+PS C:\Users\pranathi.paruchu> docker run -dit --name second_apache httpd /bin/bash
+69a9b9a7fa17f4ced32c8a68cfacd66a1532652217cbb2fac364001fd0aed5cf
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED          STATUS          PORTS                  NAMES
+69a9b9a7fa17   httpd     "/bin/bash"          13 seconds ago   Up 12 seconds   80/tcp                 second_apache
+b11aa1df50c9   httpd     "httpd-foreground"   2 hours ago      Up 2 hours      0.0.0.0:9900->80/tcp   apache_welcome
+8f50bde89942   debian    "bash"               6 days ago       Up 2 hours                             zen_taussig
+PS C:\Users\pranathi.paruchu> docker run -dit httpd
+3500dc1dfc4251ecc2bb291f45f2efdca5d2a3fe9dd97a7668e6e575eea500b6
+PS C:\Users\pranathi.paruchu> docker exec -it 70e /bin/bash
+Error response from daemon: No such container: 70e
+PS C:\Users\pranathi.paruchu> docker exec -it 350 /bin/bash
+root@3500dc1dfc42:/usr/local/apache2# exit
+exit
+PS C:\Users\pranathi.paruchu> docker exec -it 70e sh
+Error response from daemon: No such container: 70e
+PS C:\Users\pranathi.paruchu> docker exec -it 350 sh
+# exit
+PS C:\Users\pranathi.paruchu> hostname
+TIGER01365
+PS C:\Users\pranathi.paruchu> docker exec -it 350 sh
+# hostname
+3500dc1dfc42
+# exit
+PS C:\Users\pranathi.paruchu> docker run -dit --name execution httpd
+3c70153324f5192f3840d088d394bc2a1fa649650f31620f11666256510af001
+PS C:\Users\pranathi.paruchu> docker ps
+CONTAINER ID   IMAGE     COMMAND              CREATED         STATUS         PORTS
+     NAMES
+3c70153324f5   httpd     "httpd-foreground"   8 seconds ago   Up 6 seconds   80/tcp
+     execution
+3500dc1dfc42   httpd     "httpd-foreground"   4 minutes ago   Up 4 minutes   80/tcp
+     confident_mirzakhani
+69a9b9a7fa17   httpd     "/bin/bash"          6 minutes ago   Up 6 minutes   80/tcp
+     second_apache
+b11aa1df50c9   httpd     "httpd-foreground"   2 hours ago     Up 2 hours     0.0.0.0:9900->80/t
+cp   apache_welcome
+8f50bde89942   debian    "bash"               6 days ago      Up 2 hours
+     zen_taussig
+PS C:\Users\pranathi.paruchu> docker exec -it execution ls /root
+
+PS C:\Users\pranathi.paruchu> docker exec -it execution bash
+
+PS C:\Users\pranathi.paruchu> q:q
+q:q : The term 'q:q' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ q:q
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (q:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+q:q : The term 'q:q' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ q:q
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (q:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> :q
+:q : The term ':q' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ :q
++ ~~
+    + CategoryInfo          : ObjectNotFound: (:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+:q : The term ':q' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ :q
++ ~~
+    + CategoryInfo          : ObjectNotFound: (:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> q
+q : The term 'q' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ q
++ ~
+    + CategoryInfo          : ObjectNotFound: (q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+q : The term 'q' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ q
++ ~
+    + CategoryInfo          : ObjectNotFound: (q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> :q
+:q : The term ':q' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ :q
++ ~~
+    + CategoryInfo          : ObjectNotFound: (:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+:q : The term ':q' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ :q
++ ~~
+    + CategoryInfo          : ObjectNotFound: (:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> :wq
+:wq : The term ':wq' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ :wq
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (:wq:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+:wq : The term ':wq' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ :wq
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (:wq:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> :q!
+:q! : The term ':q!' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ :q!
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (:q!:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+:q! : The term ':q!' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ :q!
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (:q!:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> :q
+:q : The term ':q' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ :q
++ ~~
+    + CategoryInfo          : ObjectNotFound: (:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+:q : The term ':q' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ :q
++ ~~
+    + CategoryInfo          : ObjectNotFound: (:q:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu> clear
+PS C:\Users\pranathi.paruchu> ps
+
+Handles  NPM(K)    PM(K)      WS(K)     CPU(s)     Id  SI ProcessName
+-------  ------    -----      -----     ------     --  -- -----------
+    335      24    12864      10656              6016   0 AgentMon
+    366      25    18424      22476      24.13   9144   1 ApplicationFrameHost
+    135      12     3084       2820             33316   0 armsvc
+    394      25    29580      40180      57.16  53852   0 audiodg
+    208      12     3240       5704              5204   0 bcmHostControlService
+    220      12     2900       5936              5196   0 bcmHostStorageService
+    251      13    27044       6224              3868   0 bcmUshUpgradeService
+    281      14     4704       9596              5600   0 bdredline
+    214      27     7644       6500             62028   0 charon-svc
+    218      15    12584      26244       0.20   2860   1 chrome
+    368      18   110856     122732      67.48  19360   1 chrome
+    248      21    42080      87044     187.45  20756   1 chrome
+    313      21     8684      15280      25.31  47896   1 chrome
+    391      19    85620     140752       8.70  53496   1 chrome
+   1271      61    80084     134588      15.48  57068   1 chrome
+   1942      75   181196     241060     639.50  62408   1 chrome
+    364      17    26564      37388       1.72  62792   1 chrome
+    443      41    37512      53420     261.59  66136   1 chrome
+    816      34   413744     439356     256.16  67464   1 chrome
+   1388      66   136520     204688     268.45  69368   1 chrome
+    607      25   164644     193232      57.42  69976   1 chrome
+    246      11     2412       6236       0.47  71880   1 chrome
+    303      17    35444      79232       2.30  72496   1 chrome
+    237      18    11204      12584       2.41  75364   1 chrome
+    194      15     8640      18948       0.19  75444   1 chrome
+   2003      47   309768     274908   1,338.59  76764   1 chrome
+    284      17    26464      39104       8.66  77200   1 chrome
+    916      46   104396     102980      85.36  12972   1 com.docker.backend
+    175      21    30388      28780       2.22  59872   1 com.docker.build
+    128      14    23828      10556       0.19  70108   1 com.docker.dev-envs
+    456      21    39784      34796       3.39  18100   1 com.docker.extensions
+    146      10     4300       4412       0.36  15384   1 CompPkgSrv
+    159      11     6780       4948              2184   0 conhost
+    159      11     6792       4948              5060   0 conhost
+    103       7     6240       3224              5676   0 conhost
+    160      11     6756       4956              7256   0 conhost
+    103       7     6248       6220              7552   0 conhost
+    114       8     6372       3664              8768   0 conhost
+    159      11     6756       4928              8876   0 conhost
+    114       8     6368       3656              9024   0 conhost
+    159      11     6732       4712              9220   0 conhost
+    160      11     6716       4632              9268   0 conhost
+    159      11     6724       4940             10488   0 conhost
+    322      18     6140      14936      28.77  19896   1 conhost
+    113       7     6356       6228       0.08  30564   1 conhost
+    125      10     6688       7972       0.16  41736   1 conhost
+    125      10     6692       7964       0.16  45416   1 conhost
+    106       7     6344       6020       0.06  73760   1 conhost
+    114       8     6364      12252             75172   0 conhost
+    125      10     6684       7992       0.13  76840   1 conhost
+    703      51    64736       5912       2.02   1320   1 Cortana
+    114      12     4116       5464       0.50   2036   1 crashpad_handler
+    114      12     4096       4788       1.84  15264   1 crashpad_handler
+    114      12     4108       5032       0.61  16016   1 crashpad_handler
+    114      12     4092       5028       0.58  18784   1 crashpad_handler
+    114      12     4088       5020       0.55  44128   1 crashpad_handler
+    114      12     4088       5476       0.78  47872   1 crashpad_handler
+    120      12     4120       5032       0.67  49372   1 crashpad_handler
+    114      12     4096       5432       0.44  49592   1 crashpad_handler
+    114      12     4088       5036       0.53  51260   1 crashpad_handler
+    114      12     4080       5452       0.63  53444   1 crashpad_handler
+    114      12     4088       5472       0.55  53548   1 crashpad_handler
+    114      12     4100       5044       0.39  53944   1 crashpad_handler
+    114      12     4096       5488       0.80  54916   1 crashpad_handler
+    114      12     4076       5036       0.17  62640   1 crashpad_handler
+    114      12     4088       5504       0.23  63244   1 crashpad_handler
+    114      12     4092       5472       0.22  64148   1 crashpad_handler
+    114      12     4092       5480       0.39  65332   1 crashpad_handler
+    114      12     4076       5508       0.23  67788   1 crashpad_handler
+    114      12     4084       5504       0.28  68796   1 crashpad_handler
+   1099      38     2560       3932              1308   0 csrss
+   1019      31     3412       5164              1508   1 csrss
+   4705      25    23944      16428   1,450.31  14200   1 ctfmon
+    347      16     4292       5560              5252   0 dcagentservice
+    290      27    29268       8312   1,272.59  14852   1 dcagenttrayicon
+    314      25     7484      20016             59492   0 dcconfig
+    292      21    70732      12540              7668   0 dcondemand
+    186      15     4308       6536             11536   0 DCProcessMonitor
+    176       9     2004       8656              2712   0 DDVCollectorSvcApi
+    651      81    66568      16740              3708   0 DDVDataCollector
+    311      19    18380      11208              5576   0 DDVRulesProcessor
+   1382     145   130388      32448              6064   0 Dell.D3.WinSvc
+    627      47    53416      24644             10172   0 Dell.DCF.UA.Bradbury.API.SubAgent
+    660      64    41020      16632              7960   0 Dell.TechHub
+    650      82    58392      27800              4692   0 Dell.TechHub.Analytics.SubAgent
+    794      77    73552      47604              2212   0 Dell.TechHub.DataManager.SubAgent
+    777     107    60944      17628              4732   0 Dell.TechHub.Diagnostics.SubAgent
+   1441     125   102688      73800              1756   0 Dell.TechHub.Instrumentation.SubAgent
+    710      68    46264      38464             57752   1 Dell.TechHub.Instrumentation.UserProcess
+   1064      90    70084      22736             11368   0 DellOptimizer
+   1716     649  1126336      66684              6232   0 DellSupportAssistRemedationService
+    204      19     4440       6928             17972   0 dllhost
+    622      26     8560      11788      16.33  18056   1 dllhost
+    151      17     5020       9208       0.20  46024   1 dllhost
+    124      15    28888      24148       0.98  74460   1 docker
+    323      22    15856      41592       0.73  19500   1 Docker Desktop
+    198      16    14136      32392       0.20  62300   1 Docker Desktop
+    597      24   128472     117732      13.84  69004   1 Docker Desktop
+    347      25   105852     144352     976.70  69280   1 Docker Desktop
+    794      43    81300      95692     234.14  69468   1 Docker Desktop
+    786      61    80740      70520      26.38  69648   1 Docker Desktop
+   4027      54   186860      88892              2356   1 dwm
+    400      16    11052       9680              9576   0 ECDBWM
+    242      15     5696       8564      70.78  75540   1 ECDBWM
+    256      14    14812       5828              9116   0 ECDBWMService
+    379      24    10484       9480             11644   0 EPHost.Integrity
+    785      57    28832      30220              5460   0 EPIntegrationService
+    394      57   841380      28436              5508   0 EPProtectedService
+   2272     232  1065008     338416              5628   0 EPSecurityService
+    336      22     8296      11500              5616   0 EPUpdateService
+    152       8     2308       8292              5724   0 esif_uf
+   4005     152   717572     309992   2,696.95  55864   1 EXCEL
+   6832     296   504312     167636   6,246.13  13116   1 explorer
+    365      15    16120      13028              8772   0 ExpressConnect
+    183      10     3296       6868              5704   0 ExpressConnectAnalyticsService
+    658      24   198076      46664              5692   0 ExpressConnectNetworkService
+    250      14    14764       5840              9108   0 ExpressConnectService
+     37      10     6800       3692              1876   1 fontdrvhost
+     37       7     1824       1928              1884   0 fontdrvhost
+    225      11     3360       7904              5732   0 ftnlsv
+    241      11     3924       8640              5736   0 ftscanmgrhv
+    255      14     8488      14556              5792   0 gcpw_extension
+    184      15     3328       1552             10208   0 GoogleCrashHandler
+    168      12     4420        964              8904   0 GoogleCrashHandler64
+    241      16     3312      12112              5336   0 horizon_client_service
+      0       0       60          8                 0   0 Idle
+    193      11     2264       9912              3480   0 igfxCUIServiceN
+    404      34    38464       9892              5908   0 IntelAudioService
+    137       7     1320      10656              2688   0 IntelCpHDCPSvc
+    147       9     1344       4000              5988   0 jhi_service
+    270      16     6396       8120              5976   0 KaseyaEndpoint
+     48       4      652       2396              6204   0 Locator
+    589      29    52252      22332       4.55  24132   1 LockApp
+     53      11     1472       2964              1596   0 LsaIso
+   2226      43    15304      19768              1608   0 lsass
+    211      12     6464       6412              4868   0 Lua
+    216      12     6292       6692              5128   0 Lua
+      0       0     6116    1504280              4300   0 Memory Compression
+    543      34    17896      19172      60.33  39616   1 Microsoft.SharePoint
+    536      25    74516      56340             28372   0 MoUsoCoreWorker
+    238      18     5804       5172              2104   0 msdtc
+    251      18     6772        860       1.94  29368   1 MusNotifyIcon
+  11642      18     4928      10288              6356   0 NEService64
+    295      19     6340      22268       1.73  66644   1 notepad
+    757      27    40852      17864              5352   0 OfficeClickToRun
+    498      31    38972      18468              5872   0 OneApp.IGCC.WinService
+    874      56    73368      31460     163.25  23992   1 OneDrive
+    144      13     3224       3288             46412   0 openvpnserv
+   1015      90    81312     127964       4.16  56772   1 PhoneExperienceHost
+   1089      51    90512      70140     231.19  12052   1 powershell
+    293      19     4312       3468              2280   0 PulseSecureService
+    546      26     6764       8084              4992   0 PulseSecureService
+      0      19    11820      68336               132   0 Registry
+    167      10     1996       4256              6220   0 RstMwService
+    436      15     5324       6688              6276   0 RtkAudUService64
+    412      24    15712      20648      29.69   1128   1 RuntimeBroker
+    690      39    18848      33088     188.67   3560   1 RuntimeBroker
+    776      50    15048      30140      46.17   8004   1 RuntimeBroker
+    474      28    12428      24500      59.45  13012   1 RuntimeBroker
+    218      15     4732       6860       1.70  14408   1 RuntimeBroker
+    366      22     9704      11648      14.64  14864   1 RuntimeBroker
+    139      12     3228       5940       1.22  17708   1 RuntimeBroker
+    309      22     4996       6984              6304   0 scvpn
+   1412     257   526600      44584     823.25  21024   1 SearchApp
+   1605     229   338524      77756     192.83  51860   1 SearchApp
+    793      67    31352      17756             51840   0 SearchIndexer
+      0       0      184      40344                72   0 Secure System
+    413      19     4652       9300             16632   0 SecurityHealthService
+   1044      13    13268      10940              1568   0 services
+   2198      73   132052      29236              6444   0 ServiceShell
+    120       9    10472       8960             11244   0 SgrmBroker
+   1970      50    94560      40976      75.98  15452   1 ShellExperienceHost
+    947      39    88292      40024     358.05  13492   1 sihost
+    442      27    10928      27828       0.33  67836   1 smartscreen
+     53       4     1148       1020              1008   0 smss
+    226      13     3944       5180              6348   0 SonicWallClientProtectionService
+    447      21     5832       7308              5136   0 spoolsv
+    220      10     5588      10660             58192   0 sppsvc
+    686      32    30148      51028      41.50  14632   1 StartMenuExperienceHost
+   1335     183   198148      43812              4068   0 SupportAssistAgent
+    190     199     4476       5900               248   0 svchost
+    363      15     3692       7376               992   0 svchost
+    143      12     4520       5520       0.70   1172   1 svchost
+   1931      30    28148      35448              1812   0 svchost
+   2274      25    27328      22592              2020   0 svchost
+   5004      12     2884       6184              2072   0 svchost
+    550      20     5504       6992              2080   0 svchost
+    198      17     4160       6932              2112   0 svchost
+    199      41    14344      16032              2136   0 svchost
+    105       9     1200       3856              2144   0 svchost
+    203      12     1876       5300              2176   0 svchost
+    208      22     2032       5024              2224   0 svchost
+    202      18     2332       6628              2232   0 svchost
+    270      19     2784       5616              2252   0 svchost
+    261      14     2808       5616              2312   0 svchost
+    467      10     2312       6508              2324   0 svchost
+    420      21     3716       6704              2416   0 svchost
+    256      11     3172       6144              2424   0 svchost
+    170      14     4020       6876              2440   0 svchost
+    512      15    21140      16336              2572   0 svchost
+    371      18     6568       8184              2656   0 svchost
+    329      13     2976       6192              2752   0 svchost
+    423      18     6080      10984              2800   0 svchost
+    204       7     1776       4652              2808   0 svchost
+    141       9     1652       4360              2852   0 svchost
+    753      40    15308      14528              2880   0 svchost
+    186      10     2384       5432              2896   0 svchost
+    212      11     2268       4776              2916   0 svchost
+    173      10     1668       4652              3120   0 svchost
+    242      22     4340       6300              3132   0 svchost
+    199      11     2324       5708              3244   0 svchost
+    227      15     2432       6420              3276   0 svchost
+    369      26     7184       9244              3332   0 svchost
+    125       8     1552       3872              3356   0 svchost
+    248      14     3480       7856              3368   0 svchost
+    411      27    10928      11424              3396   0 svchost
+    217      13     3484       8432              3504   0 svchost
+    654      17     4948       9424              3576   0 svchost
+    461      34    14736      11716              3676   0 svchost
+    419      20     7700      11688              3700   0 svchost
+    496      16     5924       9744              3760   0 svchost
+    244      15    25472      30748              3820   0 svchost
+    242      13     2504       6116              3912   0 svchost
+    241      17     4504       8988              3992   0 svchost
+    268       8     1396       4104              4036   0 svchost
+    214      13     2520       5496              4112   0 svchost
+    126       9     1708       8524              4128   0 svchost
+    234      10     2308       5020              4140   0 svchost
+    194      12     2620       5800              4156   0 svchost
+    240      14     3592       6756              4168   0 svchost
+    262      16     3512       8168              4336   0 svchost
+    329      21     4360       5876              4368   0 svchost
+    233      16     2460       5512              4376   0 svchost
+    989      19    21664      25388              4616   0 svchost
+    372      18     3336       6624              4640   0 svchost
+    482      16     5864      11444              4816   0 svchost
+    147      15     1768       4688              5000   0 svchost
+    205      12     2096       5184              5032   0 svchost
+    566      28    10016      13840              5076   0 svchost
+   3458      10     7140       6436              5260   0 svchost
+    369      44     8304      12232              5360   0 svchost
+    602      33    37172      28372              5400   0 svchost
+    145       9     1848       5620              5436   0 svchost
+    385      30    66868      65868              5444   0 svchost
+    212      13     2620       6088              5756   0 svchost
+    275      15     3168       5616              5884   0 svchost
+    137       9     1588       4136              6196   0 svchost
+    217      18     2088       4544              6212   0 svchost
+    215      14     2616       4924              6416   0 svchost
+    352      19     7692       8572              6496   0 svchost
+    137      10     1332       3796              6728   0 svchost
+    421      21     5632      12864              6736   0 svchost
+    456      29     4368       7172              7584   0 svchost
+    242      12     2824       6244              7624   0 svchost
+    110       8     1440       3896              7788   0 svchost
+    260      18     5464       9340             11812   0 svchost
+    585      28     8964      13168             12232   0 svchost
+    346      22     7216      14760      78.17  13508   1 svchost
+    847      29    12876      24592      25.45  13596   1 svchost
+    610      21    10860      18580             13764   0 svchost
+    183      14     3724       6012             14096   0 svchost
+    186      14     3756       6048             14348   0 svchost
+    520      28    19452      28572     369.64  14952   1 svchost
+    417      27    10188      10868       8.78  16888   1 svchost
+    267      20     9184       7348             17156   0 svchost
+    306      19     6420       8780             20076   0 svchost
+    241      17     5252       7324             20516   0 svchost
+    154      14     4104       6588       1.67  21420   1 svchost
+    122      12     3352       6984             21476   0 svchost
+    372      17     6176      10340             21800   0 svchost
+    141      12     3188       6496             21828   0 svchost
+    475      30     7648      11196       5.73  22540   1 svchost
+    332      21    10356       9456             27896   0 svchost
+    171      13     3808       7056       0.38  33860   1 svchost
+    425      20     8564      13952             36404   0 svchost
+    123      11     2980       5032             60208   0 svchost
+    175      14     3760       5908             63804   0 svchost
+    169       9     1744       8324             68300   0 svchost
+    248      19     5144      16280             69132   0 svchost
+    252      53     3084      12044             74256   0 svchost
+    212      15     4516       9180             76876   0 svchost
+    132      12     3480       9936             77184   0 svchost
+    195      11     2004       4540              6400   0 SWGVCSvc
+   6304       0      208       3360                 4   0 System
+    775      37    59412       1644       1.16   4268   1 SystemSettings
+    339      37    12844      16288      96.16  13900   1 taskhostw
+    419      27     9924      14100      21.88  45160   1 taskhostw
+    355      23     8836      12280       1.48  51960   1 taskhostw
+    134       8     1364       3708              6408   0 TbtP2pShortcutService
+    849      30   125484      17268       7.84  66380   1 Teams
+    334      18   143464     125008      74.00  69816   1 Teams
+    297      19    14768      19616       7.41  73372   1 Teams
+    302      17    24096       7172       0.69  73652   1 Teams
+   1237      49    90100      43116      41.55  74648   1 Teams
+    426      22   280388     189632     115.39  75572   1 Teams
+   1342      53   104576      66056      74.45  77208   1 Teams
+    287      17    12096       8260       0.91  77448   1 Teams
+    387      21    17368       7588              6756   0 TeamViewer_Service
+    732      31    66160      21944     616.16  11760   1 TextInputHost
+    131      11     4048       4960              4688   0 uhssvc
+    165      14     5348       8372       6.42   1408   1 UserOOBEBroker
+    529      32    56168       2424       1.45  19492   1 Video.UI
+    194      14     5440       9552             21440   0 vmcompute
+      0       0  2758016     745064             71116   0 vmmem
+    227      13     3056      10312              6720   0 vmware-usbarbitrator64
+    374      43    12504      16240             12776   0 vmwp
+    280      12     3704       8664              6748   0 vmwsprrdpwks
+    264      16    13484       6096              6712   0 WavesAudioService
+    674      34    12736       8240              6960   0 WavesSysSvc64
+    171      11     1588       4028              1484   0 wininit
+    273      13     2836       5852              1676   1 winlogon
+    123       7     1420       4432              5564   0 wlanext
+    477      27    47724      48284              9728   0 WmiPrvSE
+    269      19    35864      32692             53096   0 WmiPrvSE
+    277      13     7588      16592             56348   0 WmiPrvSE
+    287      13     6476      15592             57792   0 WmiPrvSE
+    310      21    33432      37652             62164   0 WmiPrvSE
+    266      14     2864       2368              6764   0 WMIRegistrationService
+    204      14     5032      11408      17.97  33892   1 wsl
+    204      14     5004      11252       0.16  55984   1 wsl
+    206      14     4956      11348       0.16  73320   1 wsl
+    143      12     3956       8508       0.08  16480   1 wslhost
+    136      10     3864       8316       0.13  52388   1 wslhost
+    136      10     3880       8320       0.11  60064   1 wslhost
+    136      10     3848       8316       0.14  72588   1 wslhost
+    788      14     9848       4448              1840   0 WUDFHost
+    443      21    13936      14692              1984   0 WUDFHost
+
+
+PS C:\Users\pranathi.paruchu> docker top execution
+
+PS C:\Users\pranathi.paruchu> docker run -it --name enter_redis redis /bin/bash
+
+PS C:\Users\pranathi.paruchu> docker -ps -a
+
+PS C:\Users\pranathi.paruchu> docker ps -a
+
+PS C:\Users\pranathi.paruchu> docker run -dit --name exec_command_redis redis
+
+PS C:\Users\pranathi.paruchu> docker ps
+
+PS C:\Users\pranathi.paruchu>  docker exec -it exec_command_redis /bin/bash
+
+PS C:\Users\pranathi.paruchu> docker ps
+
+PS C:\Users\pranathi.paruchu> docker run -dit --name busylogs -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+
+PS C:\Users\pranathi.paruchu> docker ps
+
+PS C:\Users\pranathi.paruchu> docker logs busylogs
+
+PS C:\Users\pranathi.paruchu> docker logs -t busylogs
+
+PS C:\Users\pranathi.paruchu> docker logs -t busylogs
+
+PS C:\Users\pranathi.paruchu> docker pull docker.io/ubuntu:bionic
+
+PS C:\Users\pranathi.paruchu> docker pull ubuntu:bionic
+
+PS C:\Users\pranathi.paruchu> docker pull registry.hub.docker.com/library/ubuntu:bionic
+
+PS C:\Users\pranathi.paruchu> docker images
+
+PS C:\Users\pranathi.paruchu> docker run -dit registry.hub.docker.com/library/ubuntu:bionic
+
+PS C:\Users\pranathi.paruchu> docker pull mysql/mysql-server
+
+PS C:\Users\pranathi.paruchu> docker login
+
+PS C:\Users\pranathi.paruchu> docker login
+
+PS C:\Users\pranathi.paruchu> cat Dockerfile
+# Abbreviated Dockerfile for nginx
+
+FROM debian:buster-slim
+LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+
+ENV NGINX_VERSION   1.17.2
+ENV NJS_VERSION     0.3.3
+ENV PKG_RELEASE     1~buster
+
+RUN apt-get update \
+    && apt-get install -y nginx \
+    && apt-get clean
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+COPY index.html /var/www/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+PS C:\Users\pranathi.paruchu> cat Dockerfile FROM debian:latest LABEL maintainer='Pranathi' ENTRYPOINT ["/bin/ping"]
+>> TerminatingError(Get-Content): "A positional parameter cannot be found that accepts argument 'FROM'."
+Get-Content : A positional parameter cannot be found that accepts argument 'FROM'.
+At line:1 char:1
++ cat Dockerfile FROM debian:latest LABEL maintainer='Pranathi' ENTRYPO ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+Get-Content : A positional parameter cannot be found that accepts argument 'FROM'.
+At line:1 char:1
++ cat Dockerfile FROM debian:latest LABEL maintainer='Pranathi' ENTRYPO ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetCo
+   ntentCommand
+
+PS C:\Users\pranathi.paruchu> cat Dockerfile FROM debian:latest LABEL maintainer='Pranathi' ENTRYPOINT ["/bin/ping"] CMD ['www.docker.com']
+>> TerminatingError(Get-Content): "A positional parameter cannot be found that accepts argument 'FROM'."
+Get-Content : A positional parameter cannot be found that accepts argument 'FROM'.
+At line:1 char:1
++ cat Dockerfile FROM debian:latest LABEL maintainer='Pranathi' ENTRYPO ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+Get-Content : A positional parameter cannot be found that accepts argument 'FROM'.
+At line:1 char:1
++ cat Dockerfile FROM debian:latest LABEL maintainer='Pranathi' ENTRYPO ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Content], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetCo
+   ntentCommand
+
+PS C:\Users\pranathi.paruchu> cat Dockerfile
+# Abbreviated Dockerfile for nginx
+
+FROM debian:buster-slim
+LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+
+ENV NGINX_VERSION   1.17.2
+ENV NJS_VERSION     0.3.3
+ENV PKG_RELEASE     1~buster
+
+RUN apt-get update \
+    && apt-get install -y nginx \
+    && apt-get clean
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+COPY index.html /var/www/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+PS C:\Users\pranathi.paruchu> cat Dockerfile
+# Abbreviated Dockerfile for nginx
+
+FROM debian:buster-slim
+LABEL maintainer="NGINX Docker Maintainers <docker-maint@nginx.com>"
+
+ENV NGINX_VERSION   1.17.2
+ENV NJS_VERSION     0.3.3
+ENV PKG_RELEASE     1~buster
+
+RUN apt-get update \
+    && apt-get install -y nginx \
+    && apt-get clean
+
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+
+COPY index.html /var/www/html/
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+PS C:\Users\pranathi.paruchu> docker build -t pranathip123/dockerping:latest
+
+PS C:\Users\pranathi.paruchu> docker buildx -t pranathip123/dockerping:latest
+
+PS C:\Users\pranathi.paruchu> docker build -t pranathip123/dockerping:latest .
+
+PS C:\Users\pranathi.paruchu> docker images
+
+PS C:\Users\pranathi.paruchu> docker login
+
+PS C:\Users\pranathi.paruchu> docker push pranathip123/dockerping
+
+PS C:\Users\pranathi.paruchu> docker run pranathip123/dockerping
+
+PS C:\Users\pranathi.paruchu> TerminatingError(): "The pipeline has been stopped."
+>> TerminatingError(): "The pipeline has been stopped."
+PS C:\Users\pranathi.paruchu> docker run pranathip123/dockerping google.com
+
+PS C:\Users\pranathi.paruchu> mkdir tempbuild
+
+
+    Directory: C:\Users\pranathi.paruchu
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        17-07-2023     00:49                tempbuild
+
+
+PS C:\Users\pranathi.paruchu>  cd tempbuild
+PS C:\Users\pranathi.paruchu\tempbuild> nano Dockerfile
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ nano Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ nano Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> vim
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ vim
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> vim Dockerfile
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> vim Dockerfile
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the
+path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> start vim Dockerfile
+>> TerminatingError(Start-Process): "This command cannot be run due to the error: The system cannot find the file specified."
+start : This command cannot be run due to the error: The system cannot find the file specified.
+At line:1 char:1
++ start vim Dockerfile
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+start : This command cannot be run due to the error: The system cannot find the file specified.
+At line:1 char:1
++ start vim Dockerfile
++ ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidOperation: (:) [Start-Process], InvalidOperationException
+    + FullyQualifiedErrorId : InvalidOperationException,Microsoft.PowerShell.Commands.StartProcessCommand
+
+PS C:\Users\pranathi.paruchu\tempbuild> nano Dockerfile
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ nano Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ nano Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> apt install nano
+apt : The term 'apt' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt install nano
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (apt:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+apt : The term 'apt' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt install nano
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (apt:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> apt-get install nano
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get install nano
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get install nano
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> apt-get update
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get update
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get update
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> sudo docker run -t -i ubuntu /bin/bash
+sudo : The term 'sudo' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ sudo docker run -t -i ubuntu /bin/bash
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (sudo:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+sudo : The term 'sudo' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ sudo docker run -t -i ubuntu /bin/bash
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (sudo:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> apt-get update
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get update
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get update
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker build -t YOUR_DOCKER_ID/nanotest:latest .
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker ps
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker build -t 8f50bde89942/nanotest :latest .
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker build -t 8f50bde89942/nanotest:latest .
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker build -t pranathip123/nanotest:latest .
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker images
+
+PS C:\Users\pranathi.paruchu\tempbuild> docker build -t pranathip123/nanotest:latest .
+
+PS C:\Users\pranathi.paruchu\tempbuild> cat Dockerfile
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], ItemNotFou
+   ndException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+PS C:\Users\pranathi.paruchu\tempbuild> cat Dockerfile
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], ItemNotFou
+   ndException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+PS C:\Users\pranathi.paruchu\tempbuild> ls
+
+
+    Directory: C:\Users\pranathi.paruchu\tempbuild
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        17-07-2023     01:04            124 Dockerfile.txt
+
+
+PS C:\Users\pranathi.paruchu\tempbuild> cat Dockerfile.txt
+FROM debian:stable
+LABEL maintainer="pranathip123"
+RUN apt update && apt install -y nano && apt clean
+CMD [ "/bin/bash" ]
+PS C:\Users\pranathi.paruchu\tempbuild> docker build -t pranathip123/nanotest:latest .
+
+PS C:\Users\pranathi.paruchu\tempbuild> vim Dockerfile
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> apt-get install nano
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable program. 
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get install nano
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+apt-get : The term 'apt-get' is not recognized as the name of a cmdlet, function, script file, or operable
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt-get install nano
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (apt-get:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> apt install nano
+apt : The term 'apt' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt install nano
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (apt:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+apt : The term 'apt' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ apt install nano
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (apt:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> RUN apt-get -y install vim nano
+RUN : The term 'RUN' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ RUN apt-get -y install vim nano
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (RUN:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+RUN : The term 'RUN' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ RUN apt-get -y install vim nano
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (RUN:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> sudo apt-get update
+sudo : The term 'sudo' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ sudo apt-get update
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (sudo:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+sudo : The term 'sudo' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ sudo apt-get update
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (sudo:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> cat Dockerfile
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], ItemNotFou
+   ndException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+PS C:\Users\pranathi.paruchu\tempbuild> cat Dockerfile
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], 
+ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+cat : Cannot find path 'C:\Users\pranathi.paruchu\tempbuild\Dockerfile' because it does not exist.
+At line:1 char:1
++ cat Dockerfile
++ ~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\pranat...uild\Dockerfile:String) [Get-Content], ItemNotFou
+   ndException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+PS C:\Users\pranathi.paruchu\tempbuild> nano Dockerfile
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ nano Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+nano : The term 'nano' is not recognized as the name of a cmdlet, function, script file, or operable program.
+Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ nano Dockerfile
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (nano:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> vim Dockerfile
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the 
+spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+vim : The term 'vim' is not recognized as the name of a cmdlet, function, script file, or operable program. Check
+the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At line:1 char:1
++ vim Dockerfile
++ ~~~
+    + CategoryInfo          : ObjectNotFound: (vim:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\Users\pranathi.paruchu\tempbuild> cd ..
+PS C:\Users\pranathi.paruchu> docker volume create localvolume
+
+PS C:\Users\pranathi.paruchu> docker volume inspect localvolume
+
+
+
+PS C:\Users\pranathi.paruchu> echo "This file exists" > /var/lib/docker/volumes/localvolume/_data/file.txt
+out-file : Could not find a part of the path 'C:\var\lib\docker\volumes\localvolume\_data\file.txt'.
+At line:1 char:1
++ echo "This file exists" > /var/lib/docker/volumes/localvolume/_data/f ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+out-file : Could not find a part of the path 'C:\var\lib\docker\volumes\localvolume\_data\file.txt'.
+At line:1 char:1
++ echo "This file exists" > /var/lib/docker/volumes/localvolume/_data/f ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : OpenError: (:) [Out-File], DirectoryNotFoundException
+    + FullyQualifiedErrorId : FileOpenFailure,Microsoft.PowerShell.Commands.OutFileCommand
+
+PS C:\Users\pranathi.paruchu> docker run -d --name mountvolume --mount src=localvolume,dst=/data httpd
+
+PS C:\Users\pranathi.paruchu> docker exec -it mountvolume /bin/bash
+
