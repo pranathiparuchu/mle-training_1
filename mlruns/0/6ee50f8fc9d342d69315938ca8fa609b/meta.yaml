@@ -1,0 +1,15 @@
+artifact_uri: mlruns/0/6ee50f8fc9d342d69315938ca8fa609b/artifacts
+end_time: 1688893234688
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6ee50f8fc9d342d69315938ca8fa609b
+run_name: rare-chimp-957
+run_uuid: 6ee50f8fc9d342d69315938ca8fa609b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1688893234332
+status: 3
+tags: []
+user_id: pranathi
